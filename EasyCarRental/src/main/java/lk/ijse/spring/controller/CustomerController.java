@@ -21,8 +21,7 @@ public class CustomerController {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil registerCustomer(@RequestBody CustomerDTO customerDTO){
 
-        Customer customer = new Customer(customerDTO.getId(), customerDTO.getEmail(), customerDTO.getNic(), customerDTO.getDrivingLicence(), customerDTO.getAddress(), customerDTO.getContactNumber());
-        customerService.saveCustomer(customer);
+        customerService.saveCustomer(customerDTO);
 
          return new ResponseUtil(200,"Customer addedd complete",null);
 
