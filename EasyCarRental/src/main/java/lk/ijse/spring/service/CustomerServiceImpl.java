@@ -2,7 +2,9 @@ package lk.ijse.spring.service;
 
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.entity.Customer;
+import lk.ijse.spring.entity.CustomerUserAccount;
 import lk.ijse.spring.repo.CustomerRepo;
+import lk.ijse.spring.repo.CustomerUserAccountRepo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,9 @@ public class CustomerServiceImpl implements CustomerService{
     private CustomerRepo repo;
 
     @Autowired
+    private CustomerUserAccountRepo customerUserAccountRepo;
+
+    @Autowired
     private ModelMapper mapper;
 
     @Override
@@ -23,6 +28,14 @@ public class CustomerServiceImpl implements CustomerService{
         if(!repo.existsById(customer.getId())) {
 
             repo.save(mapper.map(customer,Customer.class));
+
+         if (!customerUserAccountRepo.existsById(customer.getUsername())) {
+
+             customerUserAccountRepo.save(mapper.map(customer,CustomerUserAccount.class));
+         }else {
+             throw new RuntimeException("UserAccount Already Exist");
+         }
+
 
         }else {
             throw new RuntimeException("Customer Already Exist");

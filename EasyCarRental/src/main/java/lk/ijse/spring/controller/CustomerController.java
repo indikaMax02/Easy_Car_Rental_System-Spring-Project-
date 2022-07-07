@@ -7,6 +7,7 @@ import lk.ijse.spring.service.CustomerServiceImpl;
 import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
@@ -18,10 +19,12 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
+    @ResponseStatus
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil registerCustomer(@RequestBody CustomerDTO customerDTO){
 
-        customerService.saveCustomer(customerDTO);
+          customerService.saveCustomer(customerDTO);
+
 
          return new ResponseUtil(200,"Customer addedd complete",null);
 

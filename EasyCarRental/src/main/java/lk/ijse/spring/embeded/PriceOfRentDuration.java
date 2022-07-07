@@ -1,4 +1,18 @@
 package lk.ijse.spring.embeded;
 
-public class priceOfRentDuration {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.Embeddable;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@ToString
+@Embeddable
+public class PriceOfRentDuration {
+    private double dailyPrice;
+    private double monthlyPrice;
 }

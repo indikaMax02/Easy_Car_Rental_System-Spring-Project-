@@ -1,4 +1,7 @@
 package lk.ijse.spring.repo;
 
-public interface CustomerUserAccountRepo {
+import lk.ijse.spring.entity.CustomerUserAccount;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CustomerUserAccountRepo extends JpaRepository<CustomerUserAccount,String> {
 }
