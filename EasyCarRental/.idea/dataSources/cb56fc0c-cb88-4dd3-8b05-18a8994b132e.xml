@@ -1048,194 +1048,313 @@
     </user>
     <table id="335" parent="2" name="customer"/>
     <table id="336" parent="2" name="customeruseraccount"/>
-    <table id="337" parent="2" name="rentalrequest"/>
-    <table id="338" parent="2" name="vehicle"/>
-    <column id="339" parent="335" name="id">
+    <table id="337" parent="2" name="driver"/>
+    <table id="338" parent="2" name="driverschedule"/>
+    <table id="339" parent="2" name="driveruseraccount"/>
+    <table id="340" parent="2" name="rentalrequest"/>
+    <table id="341" parent="2" name="vehicle"/>
+    <column id="342" parent="335" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="335" name="address">
+    <column id="343" parent="335" name="address">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="341" parent="335" name="contactNumber">
+    <column id="344" parent="335" name="contactNumber">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="342" parent="335" name="drivingLicence">
+    <column id="345" parent="335" name="drivingLicence">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="343" parent="335" name="email">
+    <column id="346" parent="335" name="email">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="344" parent="335" name="nic">
+    <column id="347" parent="335" name="nic">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="345" parent="335" name="PRIMARY">
+    <key id="348" parent="335" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="346" parent="336" name="userName">
+    <column id="349" parent="336" name="userName">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="336" name="password">
+    <column id="350" parent="336" name="password">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="336" name="customer_id">
+    <column id="351" parent="336" name="customer_id">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="349" parent="336" name="FKplm4181erjsg4h5rvd153r2r3">
+    <index id="352" parent="336" name="FKplm4181erjsg4h5rvd153r2r3">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="350" parent="336" name="PRIMARY">
+    <key id="353" parent="336" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userName</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="351" parent="336" name="FKplm4181erjsg4h5rvd153r2r3">
+    <foreign-key id="354" parent="336" name="FKplm4181erjsg4h5rvd153r2r3">
       <ColNames>customer_id</ColNames>
       <RefTableName>customer</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="352" parent="337" name="requestId">
+    <column id="355" parent="337" name="driverId">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="353" parent="337" name="customer_id">
+    <column id="356" parent="337" name="address">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="354" parent="337" name="vehicle_vehicleId">
+    <column id="357" parent="337" name="contactNumber">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="337" name="damagePaySlip">
+    <column id="358" parent="337" name="drivingLicence">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="337" name="pickupDateAndTime">
+    <column id="359" parent="337" name="email">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="337" name="rentPayment">
+    <column id="360" parent="337" name="nic">
       <Position>6</Position>
-      <DataType>double|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="361" parent="337" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>driverId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="362" parent="338" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="337" name="requestDateAndTime">
-      <Position>7</Position>
-      <DataType>datetime(6)|0s</DataType>
+    <column id="363" parent="338" name="date">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="359" parent="337" name="FKe81kundsl5iul5p0p0ujv8ywj">
-      <ColNames>customer_id</ColNames>
+    <column id="364" parent="338" name="time">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="365" parent="338" name="driver_driverId">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="366" parent="338" name="vehicle_vehicleId">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="367" parent="338" name="FKqgl4087ogemnvrery05rpjd0o">
+      <ColNames>driver_driverId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="360" parent="337" name="FK66tjq3ln51ob4r72cqkuy0s8r">
+    <index id="368" parent="338" name="FKmbmsxogsi7osca1re2utlkcu2">
       <ColNames>vehicle_vehicleId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="361" parent="337" name="PRIMARY">
+    <key id="369" parent="338" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>requestId</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="362" parent="337" name="FKe81kundsl5iul5p0p0ujv8ywj">
-      <ColNames>customer_id</ColNames>
-      <RefTableName>customer</RefTableName>
-      <RefColNames>id</RefColNames>
+    <foreign-key id="370" parent="338" name="FKqgl4087ogemnvrery05rpjd0o">
+      <ColNames>driver_driverId</ColNames>
+      <RefTableName>driver</RefTableName>
+      <RefColNames>driverId</RefColNames>
     </foreign-key>
-    <foreign-key id="363" parent="337" name="FK66tjq3ln51ob4r72cqkuy0s8r">
+    <foreign-key id="371" parent="338" name="FKmbmsxogsi7osca1re2utlkcu2">
       <ColNames>vehicle_vehicleId</ColNames>
       <RefTableName>vehicle</RefTableName>
       <RefColNames>vehicleId</RefColNames>
     </foreign-key>
-    <column id="364" parent="338" name="vehicleId">
+    <column id="372" parent="339" name="userName">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="338" name="NumOfPassenger">
+    <column id="373" parent="339" name="password">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="374" parent="339" name="driver_driverId">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="375" parent="339" name="FK346b0e204fvluv7titoxn35ga">
+      <ColNames>driver_driverId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="376" parent="339" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userName</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="377" parent="339" name="FK346b0e204fvluv7titoxn35ga">
+      <ColNames>driver_driverId</ColNames>
+      <RefTableName>driver</RefTableName>
+      <RefColNames>driverId</RefColNames>
+    </foreign-key>
+    <column id="378" parent="340" name="requestId">
+      <Position>1</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="379" parent="340" name="damagePaySlip">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="380" parent="340" name="pickupDateAndTime">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="381" parent="340" name="rentPayment">
+      <Position>4</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="382" parent="340" name="requestDateAndTime">
+      <Position>5</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="383" parent="340" name="customer_id">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="384" parent="340" name="vehicle_vehicleId">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="385" parent="340" name="FKe81kundsl5iul5p0p0ujv8ywj">
+      <ColNames>customer_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="386" parent="340" name="FK66tjq3ln51ob4r72cqkuy0s8r">
+      <ColNames>vehicle_vehicleId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="387" parent="340" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>requestId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="388" parent="340" name="FKe81kundsl5iul5p0p0ujv8ywj">
+      <ColNames>customer_id</ColNames>
+      <RefTableName>customer</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="389" parent="340" name="FK66tjq3ln51ob4r72cqkuy0s8r">
+      <ColNames>vehicle_vehicleId</ColNames>
+      <RefTableName>vehicle</RefTableName>
+      <RefColNames>vehicleId</RefColNames>
+    </foreign-key>
+    <column id="390" parent="341" name="vehicleId">
+      <Position>1</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="391" parent="341" name="NumOfPassenger">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="338" name="brand">
+    <column id="392" parent="341" name="brand">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="367" parent="338" name="freeMileageForPriceAndDuration">
+    <column id="393" parent="341" name="freeMileageForPriceAndDuration">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="368" parent="338" name="fuelType">
+    <column id="394" parent="341" name="fuelType">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="369" parent="338" name="image">
+    <column id="395" parent="341" name="image">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="370" parent="338" name="priceOfExtraKm">
+    <column id="396" parent="341" name="priceOfExtraKm">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="338" name="dailyPrice">
+    <column id="397" parent="341" name="dailyPrice">
       <Position>8</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="372" parent="338" name="monthlyPrice">
+    <column id="398" parent="341" name="monthlyPrice">
       <Position>9</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="338" name="registerNumber">
+    <column id="399" parent="341" name="registerNumber">
       <Position>10</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="338" name="transmissionType">
+    <column id="400" parent="341" name="transmissionType">
       <Position>11</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="375" parent="338" name="PRIMARY">
+    <key id="401" parent="341" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>vehicleId</ColNames>
       <Primary>1</Primary>

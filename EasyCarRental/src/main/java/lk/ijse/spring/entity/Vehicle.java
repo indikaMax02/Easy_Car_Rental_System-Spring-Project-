@@ -8,6 +8,10 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.HashSet;
+import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -25,6 +29,9 @@ public class Vehicle {
     private String freeMileageForPriceAndDuration;
     private String priceOfExtraKm;
     private String registerNumber;
+
+    @OneToMany(mappedBy = "vehicle")
+    private Set<DriverSchedule> driverSchedule=new HashSet<DriverSchedule>();
 
 
 
