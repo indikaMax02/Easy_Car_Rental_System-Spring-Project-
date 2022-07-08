@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MySQL - @localhost" uuid="cb56fc0c-cb88-4dd3-8b05-18a8994b132e">
-      <database-info product="MySQL" version="5.5.5-10.6.8-MariaDB" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" dbms="MARIADB" exact-version="10.6.8" exact-driver-version="8.0">
+    <data-source name="MariaDB - @localhost" uuid="71efd3e7-c438-4ba9-a7ed-000826656712">
+      <database-info product="MariaDB" version="10.3.34-MariaDB-0ubuntu0.20.04.1" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.6.0" dbms="MARIADB" exact-version="10.3.34" exact-driver-version="2.6">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="carrental" />
+          <node kind="schema" qname="carRental" />
         </introspection-scope>
       </schema-mapping>
     </data-source>

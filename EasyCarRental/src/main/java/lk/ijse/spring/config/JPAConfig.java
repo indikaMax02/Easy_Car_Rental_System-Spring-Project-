@@ -34,14 +34,14 @@ public class JPAConfig {
         dataSource.setUrl("jdbc:mysql://localhost:3306/carRental?createDatabaseIfNotExist=true");
         dataSource.setUsername("root");
         dataSource.setPassword("1234");
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         return dataSource;
     }
 
     @Bean
     public JpaVendorAdapter jpaVendorAdapter(){
         HibernateJpaVendorAdapter vendor = new HibernateJpaVendorAdapter();
-        vendor.setDatabasePlatform("org.hibernate.dialect.MariaDB106Dialect");
+        vendor.setDatabasePlatform("org.hibernate.dialect.MariaDB103Dialect");
         vendor.setDatabase(Database.MYSQL);
         vendor.setShowSql(true);
         vendor.setGenerateDdl(true);
