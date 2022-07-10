@@ -17,7 +17,7 @@ import java.util.Set;
 @Data
 @ToString
 @Entity
-public class Vehicle {
+public class Car {
     @Id
     private String vehicleId;
     private String brand;
@@ -29,8 +29,9 @@ public class Vehicle {
     private String freeMileageForPriceAndDuration;
     private String priceOfExtraKm;
     private String registerNumber;
+    private String state;
 
-    @OneToMany(mappedBy = "vehicle")
+    @OneToMany(mappedBy = "car")
     private Set<DriverSchedule> driverSchedule=new HashSet<DriverSchedule>();
 
 

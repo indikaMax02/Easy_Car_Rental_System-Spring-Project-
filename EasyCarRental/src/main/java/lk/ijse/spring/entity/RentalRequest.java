@@ -24,7 +24,7 @@ public class RentalRequest {
     private Customer customer;
 
     @OneToOne
-    private Vehicle vehicle;
+    private Car car;
 
     private String pickupDateAndTime;
 
@@ -34,6 +34,8 @@ public class RentalRequest {
     private String damagePaySlip;
 
     private double rentPayment;
+
+    private String state;
 
 
 }
