@@ -30,6 +30,7 @@ public class CustomerController {
 
     }
 
+
     @GetMapping(path="guestUser/viewCar",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil ViewAllCar(){
         List<CarDTO> vehicleDTOS = customerService.viewCars();

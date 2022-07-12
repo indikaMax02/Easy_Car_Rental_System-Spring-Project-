@@ -17,7 +17,6 @@ import java.util.Set;
 public class CarDTO {
     private String vehicleId;
     private String brand;
-    private String image;
     private int NumOfPassenger;
     private String transmissionType;
     private String fuelType;

@@ -22,7 +22,7 @@ public class WebAppConfig {
    @Bean
     public CommonsMultipartResolver multipartResolver(){
        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
-       commonsMultipartResolver.setMaxUploadSize(200000);
+       commonsMultipartResolver.setMaxUploadSize(20000000);
        return commonsMultipartResolver;
    }
 

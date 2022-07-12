@@ -21,7 +21,6 @@ public class Car {
     @Id
     private String vehicleId;
     private String brand;
-    private String image;
     private int NumOfPassenger;
     private String transmissionType;
     private String fuelType;
