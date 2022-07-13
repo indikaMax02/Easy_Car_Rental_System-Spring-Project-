@@ -16,27 +16,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f40b6a14-c7a3-40b5-b2c2-78391906da26" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/image/CarImage/Car001Back.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/image/CarImage/Car001Front.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/image/CarImage/Car001Interior.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/image/CarImage/Car001Side.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/controller/CustomerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/static/image/CarImage/Car001Back.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/static/image/CarImage/Car001Front.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/static/image/CarImage/Car001Interior.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/static/image/CarImage/Car001Side.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/controller/CustomerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/image/CarImage/Car001Back.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/image/CarImage/Car001Front.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/image/CarImage/Car001Interior.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/image/CarImage/Car001Side.jpeg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +86,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="/media/indika/Work Area/ijse/2 sem/LayerdArchitecture/POS/Layered_Architecture" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../React/my-app" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -249,7 +229,7 @@
       <workItem from="1657556982864" duration="493000" />
       <workItem from="1657564146134" duration="4385000" />
       <workItem from="1657591050695" duration="30409000" />
-      <workItem from="1657678969265" duration="5682000" />
+      <workItem from="1657678969265" duration="7203000" />
     </task>
     <servers />
   </component>
@@ -320,11 +300,11 @@
       <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="114" y="0" width="1127" height="726" key="CommitChangelistDialog2/0.0.1366.726@0.0.1366.726" timestamp="1657500895240" />
-    <state x="463" y="116" width="424" height="518" key="FileChooserDialogImpl" timestamp="1657604087866">
+    <state x="463" y="116" width="424" height="518" key="FileChooserDialogImpl" timestamp="1657723503692">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="463" y="115" key="FileChooserDialogImpl/0.0.1366.720/1366.0.1280.672@0.0.1366.720" timestamp="1657103292650" />
-    <state x="463" y="116" width="424" height="518" key="FileChooserDialogImpl/0.0.1366.726@0.0.1366.726" timestamp="1657604087866" />
+    <state x="463" y="116" width="424" height="518" key="FileChooserDialogImpl/0.0.1366.726@0.0.1366.726" timestamp="1657723503692" />
     <state width="906" height="207" key="GridCell.Tab.0.bottom" timestamp="1657653998868">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
