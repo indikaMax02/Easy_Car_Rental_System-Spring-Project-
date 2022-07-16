@@ -16,6 +16,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f40b6a14-c7a3-40b5-b2c2-78391906da26" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/Easy_Rental_Car_System.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/front-end.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/components/navBar/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/components/navBar/style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/CustomerPages/home/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/CustomerPages/home/style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/login/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/login/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,29 +96,37 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../React/my-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/static/image/image" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static/image" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$/src/main/resources/static" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../front-end/src/app" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/image/image" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/image" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.Debug Application">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
     <configuration name="Tomcat 8.5.78" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.78" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/EasyCarRental_war/webapp" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
@@ -194,11 +212,6 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
             </expand>
             <select />
           </treeState>
@@ -229,7 +242,10 @@
       <workItem from="1657556982864" duration="493000" />
       <workItem from="1657564146134" duration="4385000" />
       <workItem from="1657591050695" duration="30409000" />
-      <workItem from="1657678969265" duration="7203000" />
+      <workItem from="1657678969265" duration="7841000" />
+      <workItem from="1657764604046" duration="30000" />
+      <workItem from="1657943418099" duration="1233000" />
+      <workItem from="1657944959147" duration="26650000" />
     </task>
     <servers />
   </component>
@@ -258,6 +274,10 @@
       <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="150" y="43" width="800" height="683" key="#Custom_Plugin_Repositories/0.0.1366.726@0.0.1366.726" timestamp="1657255937678" />
+    <state x="278" y="24" width="800" height="683" key="#ESLint" timestamp="1657950769370">
+      <screen x="0" y="0" width="2646" height="726" />
+    </state>
+    <state x="278" y="24" width="800" height="683" key="#ESLint/0.0.2646.726@0.0.2646.726" timestamp="1657950769370" />
     <state x="278" y="24" width="800" height="683" key="#Inspections" timestamp="1657253993720">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
@@ -396,26 +416,28 @@
     </state>
     <state x="565" y="247" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.720/1366.0.1280.672@0.0.1366.720" timestamp="1657187091593" />
     <state x="565" y="249" width="346" height="259" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.726@0.0.1366.726" timestamp="1657298470435" />
-    <state x="257" y="200" key="com.intellij.ide.util.TipDialog" timestamp="1657679043771">
+    <state x="257" y="200" key="com.intellij.ide.util.TipDialog" timestamp="1657764613653">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
-    <state x="257" y="200" key="com.intellij.ide.util.TipDialog/0.0.1366.726@0.0.1366.726" timestamp="1657679043771" />
+    <state x="257" y="200" key="com.intellij.ide.util.TipDialog/0.0.1366.726@0.0.1366.726" timestamp="1657764613653" />
     <state x="351" y="0" width="663" height="726" key="find.popup" timestamp="1657564453741">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="351" y="0" width="663" height="726" key="find.popup/0.0.1366.726@0.0.1366.726" timestamp="1657564453741" />
-    <state x="65" y="0" width="1225" height="726" key="new project wizard" timestamp="1657253912293">
-      <screen x="0" y="0" width="1366" height="726" />
+    <state x="0" y="0" width="1366" height="726" key="new project wizard" timestamp="1657945250395">
+      <screen x="0" y="0" width="2646" height="726" />
     </state>
     <state x="65" y="0" width="1225" height="726" key="new project wizard/0.0.1366.726@0.0.1366.726" timestamp="1657253912293" />
+    <state x="0" y="0" width="1366" height="726" key="new project wizard/0.0.2646.726@0.0.2646.726" timestamp="1657945250395" />
     <state x="768" y="0" width="588" height="726" key="refactoring.ChangeSignatureDialog" timestamp="1657440436568">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="768" y="0" width="588" height="726" key="refactoring.ChangeSignatureDialog/0.0.1366.726@0.0.1366.726" timestamp="1657440436568" />
-    <state x="347" y="157" key="run.anything.popup" timestamp="1657445708738">
-      <screen x="0" y="0" width="1366" height="726" />
+    <state x="672" y="157" key="run.anything.popup" timestamp="1657947384982">
+      <screen x="0" y="0" width="2646" height="726" />
     </state>
     <state x="347" y="157" key="run.anything.popup/0.0.1366.726@0.0.1366.726" timestamp="1657445708738" />
+    <state x="672" y="157" key="run.anything.popup/0.0.2646.726@0.0.2646.726" timestamp="1657947384982" />
     <state x="339" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1657429167036">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
