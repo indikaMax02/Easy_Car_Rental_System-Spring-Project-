@@ -16,17 +16,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f40b6a14-c7a3-40b5-b2c2-78391906da26" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/Easy_Rental_Car_System.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/front-end.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/components/navBar/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/components/navBar/style.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/CustomerPages/home/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/CustomerPages/home/style.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/login/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/login/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/icon/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/image/slider1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/components/common/Button/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/components/common/SnackBar/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/components/common/Table/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/components/navBar/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/headerWrapper/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/components/navBar/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/headerWrapper/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/pages/CustomerPages/home/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/pages/CustomerPages/home/style.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +98,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/New folder (1)/New folder" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -107,20 +109,24 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../front-end/src/app" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/image/image" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/image" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../front-end/src/assets/image" />
+      <recent name="$PROJECT_DIR$/../front-end/src/assets/icon" />
+      <recent name="$PROJECT_DIR$/../front-end/src/components" />
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.Debug Application">
@@ -245,7 +251,21 @@
       <workItem from="1657678969265" duration="7841000" />
       <workItem from="1657764604046" duration="30000" />
       <workItem from="1657943418099" duration="1233000" />
-      <workItem from="1657944959147" duration="26650000" />
+      <workItem from="1657944959147" duration="28540000" />
+      <workItem from="1658022212388" duration="6000" />
+      <workItem from="1658025103562" duration="4000" />
+      <workItem from="1658026869516" duration="10203000" />
+      <workItem from="1658049839756" duration="327000" />
+      <workItem from="1658060628159" duration="11289000" />
+      <workItem from="1658078752746" duration="5871000" />
+      <workItem from="1658114918874" duration="1455000" />
+      <workItem from="1658118371272" duration="2708000" />
+      <workItem from="1658121521478" duration="20284000" />
+      <workItem from="1658202873008" duration="2324000" />
+      <workItem from="1658226052116" duration="4739000" />
+      <workItem from="1658250390050" duration="585000" />
+      <workItem from="1658252455096" duration="604000" />
+      <workItem from="1658255862411" duration="7131000" />
     </task>
     <servers />
   </component>
@@ -320,11 +340,11 @@
       <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="114" y="0" width="1127" height="726" key="CommitChangelistDialog2/0.0.1366.726@0.0.1366.726" timestamp="1657500895240" />
-    <state x="463" y="116" width="424" height="518" key="FileChooserDialogImpl" timestamp="1657723503692">
+    <state x="463" y="116" width="424" height="518" key="FileChooserDialogImpl" timestamp="1658202990500">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="463" y="115" key="FileChooserDialogImpl/0.0.1366.720/1366.0.1280.672@0.0.1366.720" timestamp="1657103292650" />
-    <state x="463" y="116" width="424" height="518" key="FileChooserDialogImpl/0.0.1366.726@0.0.1366.726" timestamp="1657723503692" />
+    <state x="463" y="116" width="424" height="518" key="FileChooserDialogImpl/0.0.1366.726@0.0.1366.726" timestamp="1658202990500" />
     <state width="906" height="207" key="GridCell.Tab.0.bottom" timestamp="1657653998868">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
@@ -416,32 +436,32 @@
     </state>
     <state x="565" y="247" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.720/1366.0.1280.672@0.0.1366.720" timestamp="1657187091593" />
     <state x="565" y="249" width="346" height="259" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.726@0.0.1366.726" timestamp="1657298470435" />
-    <state x="257" y="200" key="com.intellij.ide.util.TipDialog" timestamp="1657764613653">
+    <state x="257" y="200" key="com.intellij.ide.util.TipDialog" timestamp="1658255860312">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
-    <state x="257" y="200" key="com.intellij.ide.util.TipDialog/0.0.1366.726@0.0.1366.726" timestamp="1657764613653" />
+    <state x="257" y="200" key="com.intellij.ide.util.TipDialog/0.0.1366.726@0.0.1366.726" timestamp="1658255860312" />
     <state x="351" y="0" width="663" height="726" key="find.popup" timestamp="1657564453741">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="351" y="0" width="663" height="726" key="find.popup/0.0.1366.726@0.0.1366.726" timestamp="1657564453741" />
-    <state x="0" y="0" width="1366" height="726" key="new project wizard" timestamp="1657945250395">
-      <screen x="0" y="0" width="2646" height="726" />
+    <state x="65" y="0" width="1366" height="726" key="new project wizard" timestamp="1658027777282">
+      <screen x="0" y="0" width="1366" height="726" />
     </state>
-    <state x="65" y="0" width="1225" height="726" key="new project wizard/0.0.1366.726@0.0.1366.726" timestamp="1657253912293" />
+    <state x="65" y="0" width="1225" height="726" key="new project wizard/0.0.1366.726@0.0.1366.726" timestamp="1658027777282" />
     <state x="0" y="0" width="1366" height="726" key="new project wizard/0.0.2646.726@0.0.2646.726" timestamp="1657945250395" />
     <state x="768" y="0" width="588" height="726" key="refactoring.ChangeSignatureDialog" timestamp="1657440436568">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="768" y="0" width="588" height="726" key="refactoring.ChangeSignatureDialog/0.0.1366.726@0.0.1366.726" timestamp="1657440436568" />
-    <state x="672" y="157" key="run.anything.popup" timestamp="1657947384982">
-      <screen x="0" y="0" width="2646" height="726" />
+    <state x="347" y="157" key="run.anything.popup" timestamp="1658050222808">
+      <screen x="0" y="0" width="1366" height="726" />
     </state>
-    <state x="347" y="157" key="run.anything.popup/0.0.1366.726@0.0.1366.726" timestamp="1657445708738" />
+    <state x="347" y="157" key="run.anything.popup/0.0.1366.726@0.0.1366.726" timestamp="1658050222808" />
     <state x="672" y="157" key="run.anything.popup/0.0.2646.726@0.0.2646.726" timestamp="1657947384982" />
-    <state x="339" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1657429167036">
+    <state x="339" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1658038767232">
       <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="339" y="41" key="search.everywhere.popup/0.0.1366.720@0.0.1366.720" timestamp="1657200197977" />
-    <state x="339" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1366.726@0.0.1366.726" timestamp="1657429167036" />
+    <state x="339" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1366.726@0.0.1366.726" timestamp="1658038767232" />
   </component>
 </project>

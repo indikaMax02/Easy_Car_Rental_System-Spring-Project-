@@ -1,12 +1,13 @@
 
-import React, {Component} from "react";
-import NavBar from "../components/navBar";
-import Home from "../pages/CustomerPages/home";
+
+import NavBar from "../components/headerWrapper";
+import React from "react";
+
 
 
 function App() {
   return (
-         <NavBar/>
+       <NavBar/>
   );
 }
 
