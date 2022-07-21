@@ -15,15 +15,46 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import AdminNavBar from "../../../components/admin/navBar";
 import Divider from "@material-ui/core/Divider";
-
+import Link from "../../../assets/image/slider1.jpg";
+import myImage from "../../../assets/image/slider1.jpg";
+import PostService from "../../../services/PostService";
 
 
 class ManageCar extends Component{
     constructor(props) {
         super(props);
+
+        this.state = {
+            formData: {
+                userId: '1',
+                id: '1',
+                title: 'tgrtg',
+                body: 'rtttttttttttttttttttttttttttttttttttttttgrtgrtgr'
+            },
+        }
     }
 
+
+
+    async handleSubmit() {
+        console.log('save button clicked!!')
+        console.log(this.state.formData)
+        let formData = this.state.formData
+        let response = await PostService.createPost(formData);
+        if (response.status === 201) {
+            alert("post Created")
+        } else {
+            alert("post Create Failed")
+        }
+    }
+
+
     render() {
+
+
+        this.state = {
+            lnk : {Link}
+        }
 
         const top100Films = [
             { title: 'Auto'},
@@ -173,8 +204,48 @@ class ManageCar extends Component{
 
                         <div className={classes.imageContainer}>
 
-                            <div className={classes.imageDiv}></div>
-                            <div className={classes.imageDiv}></div>
+                            <div className={classes.imageDiv}
+
+                                 /*style={{
+
+                                     display : 'flex',
+                                     alignItems : 'center',
+                                     justifyContent : 'center',
+                                     height : '75%',
+                                 /!*    background:"url(" + Link+ ")",*!/
+                                     backgroundSize: 'cover'
+
+                                 }}*/
+
+                            /*onClick={(e) =>{
+                                 var S=this.state.lnk;
+                              //  e.target.style.
+
+                             e.target.style.background="url(" + Link+ ")";
+                                e.target.style.backgroundSize='cover';
+
+                                console.log(S)
+                            }}*/
+
+                            > </div>
+                            <div className={classes.imageDiv}>
+
+                                <Button variant="contained" color="primary"
+
+                                        onClick={() =>{
+                                            this.handleSubmit();
+                                        }
+                                        }
+
+
+
+
+                                >
+                               Submit
+                            </Button>
+
+
+                            </div>
                             <div className={classes.imageDiv}></div>
                             <div className={classes.imageDiv}></div>
 
