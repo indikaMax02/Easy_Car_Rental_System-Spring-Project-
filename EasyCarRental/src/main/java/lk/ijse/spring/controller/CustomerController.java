@@ -109,12 +109,7 @@ public class CustomerController {
 
     }
 
-    @PostMapping(path = "rentalRequest")
-    public ResponseUtil rentalRequest(@RequestBody RentalRequestDTO rentalRequestDTO){
 
-        customerService.rentalRequest(rentalRequestDTO);
-        return new ResponseUtil(200,"renatalRequest recevied",null);
-    }
 
     @PutMapping
     public ResponseUtil updateCustomerInformation(@RequestBody CustomerDTO customerDTO){

@@ -32,8 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CarRepo carRepo;
 
-    @Autowired
-    private RentalRequestRepo rentalRequestRepo;
+
 
     @Autowired
     private ModelMapper mapper;
@@ -82,23 +81,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void rentalRequest(RentalRequestDTO rentalRequestDTO) {
 
-        if (!rentalRequestRepo.existsById(rentalRequestDTO.getRequestId())){
 
-            Customer customer = repo.getCustomerById(rentalRequestDTO.getCustomerId());
-            Car car = carRepo.getCarById(rentalRequestDTO.getVehicleId());
-
-            RentalRequest rentalRequest = new RentalRequest();
-            rentalRequest.setRequestId(rentalRequestDTO.getRequestId());
-            rentalRequest.setCustomer(customer);
-            rentalRequest.setCar(car);
-            rentalRequest.setPickupDateAndTime(rentalRequestDTO.getPickupDateAndTime());
-            rentalRequest.setDamagePaySlip(rentalRequestDTO.getDamagePaySlip());
-            rentalRequest.setRentPayment(rentalRequestDTO.getRentPayment());
-            rentalRequest.setState("pending");
-          rentalRequestRepo.save(rentalRequest);
-      }else {
-          throw new RuntimeException("Rental request Fail");
-      }
 
 
     }
