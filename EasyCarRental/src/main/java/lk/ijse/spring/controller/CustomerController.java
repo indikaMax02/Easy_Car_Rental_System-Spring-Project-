@@ -22,6 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("customer")
+@CrossOrigin
 public class CustomerController {
 
     @Autowired
@@ -30,7 +31,7 @@ public class CustomerController {
     @Autowired
     SearchFile searchFile;
 
-    @ResponseStatus
+
     @PostMapping(path = "guestUser/register",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil registerCustomer(@RequestBody RegisterCustomerDTO registerCustomerDTO){
 

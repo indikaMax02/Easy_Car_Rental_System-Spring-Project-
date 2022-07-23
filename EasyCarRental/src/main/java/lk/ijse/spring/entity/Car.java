@@ -21,13 +21,14 @@ public class Car {
     @Id
     private String vehicleId;
     private String brand;
-    private int NumOfPassenger;
+    private String NumOfPassenger;
     private String transmissionType;
     private String fuelType;
     private PriceOfRentDuration priceOfRentDuration;
     private String freeMileageForPriceAndDuration;
     private String priceOfExtraKm;
     private String registerNumber;
+    private String color;
     private String state;
 
     @OneToMany(mappedBy = "car")

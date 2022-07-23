@@ -1,23 +1,17 @@
 import React, {Component} from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {styleSheet} from "./style";
-import Logo from "../../../assets/icon/logo.png"
+
 import Button from "@material-ui/core/Button";
-import {TbHome} from "react-icons/tb";
-import {GrUserManager} from "react-icons/gr";
-import {AiFillCar} from "react-icons/ai";
-import {FaUserEdit} from "react-icons/fa";
-import {VscRequestChanges} from "react-icons/vsc";
-import red from "@material-ui/core/colors/red";
-import blue from "@material-ui/core/colors/blue";
-import MenuListComposition from "../../../components/admin/MenuListComposition";
+
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import AdminNavBar from "../../../components/admin/navBar";
 import Divider from "@material-ui/core/Divider";
-import Link from "../../../assets/image/slider1.jpg";
-import myImage from "../../../assets/image/slider1.jpg";
-import PostService from "../../../services/PostService";
+
+import postService from "../../../services/CarService"
+
+
 
 
 class ManageCar extends Component{
@@ -25,36 +19,86 @@ class ManageCar extends Component{
         super(props);
 
         this.state = {
-            formData: {
-                userId: '1',
-                id: '1',
-                title: 'tgrtg',
-                body: 'rtttttttttttttttttttttttttttttttttttttttgrtgrtgr'
-            },
+            frontImage: null,
+            backImage : null,
+            sideImage : null,
+            interiorImage : null,
+
+            frontView : null,
+            backView : null,
+            sideView : null,
+            interiorView : null,
+
+            carDetails : {
+                vehicleId : '',
+                vehicleType : '',
+                numofP : '',
+                transmissionType : '',
+                fuelType :'',
+                registerNum : '',
+                color : '',
+                pricesForDaily : '',
+                pricesForMonthly : '',
+                freeMileage : '',
+                priceForExtraKm : '',
+            }
         }
     }
 
 
+    addCarImage=async () =>{
 
-    async handleSubmit() {
-        console.log('save button clicked!!')
-        console.log(this.state.formData)
-        let formData = this.state.formData
-        let response = await PostService.createPost(formData);
-        if (response.status === 201) {
-            alert("post Created")
-        } else {
-            alert("post Create Failed")
+        var bodyFormData = new FormData();
+        bodyFormData.append('param', this.state.frontImage);
+        bodyFormData.append('param', this.state.backImage);
+        bodyFormData.append('param', this.state.sideImage);
+        bodyFormData.append('param', this.state.interiorImage);
+
+         let res = await postService.addCarImage(bodyFormData);
+         if (res.data.code===200){alert(res.data.message)}else {
+             alert(res.data.message);
+         }
+
+    }
+
+    addCar =async () =>{
+
+        var carDetails = {
+            vehicleId : this.state.carDetails.vehicleId,
+            brand  : this.state.carDetails.vehicleType,
+            numOfPassenger : this.state.carDetails.numofP,
+            transmissionType : this.state.carDetails.transmissionType,
+            fuelType : this.state.carDetails.fuelType,
+            priceOfRentDurationDaily : this.state.carDetails.pricesForDaily ,
+            priceOfRentDurationMonthly : this.state.carDetails.pricesForMonthly,
+            freeMileageForPriceAndDuration : this.state.carDetails.freeMileage,
+            priceOfExtraKm : this.state.carDetails.priceForExtraKm,
+            registerNumber : this.state.carDetails.registerNum,
+            color : this.state.carDetails.color,
+            state : 'Parking'
         }
+
+        let res = await postService.addCar(carDetails);
+        if (res.data.code==200){
+            alert(res.data.message);
+
+            this.addCarImage();
+
+        }else {
+            alert(res.data.message);
+        }
+
+
     }
 
 
-    render() {
 
 
-        this.state = {
-            lnk : {Link}
-        }
+
+
+
+    render(){
+
 
         const top100Films = [
             { title: 'Auto'},
@@ -94,6 +138,10 @@ class ManageCar extends Component{
                                 id="outlined-required"
                                 label="Vehical ID"
                                 variant="outlined"
+                                onChange={(e) =>{
+                                    this.state.carDetails.vehicleId=e.target.value;
+                                }}
+
                             />
 
                             <TextField
@@ -101,6 +149,9 @@ class ManageCar extends Component{
                                 id="outlined-required"
                                 label="Type"
                                 variant="outlined"
+                                onChange={(e) =>{
+                                    this.state.carDetails.vehicleType=e.target.value;
+                                }}
                             />
 
                             <TextField
@@ -108,6 +159,9 @@ class ManageCar extends Component{
                                 id="outlined-required"
                                 label="Num of Passengers"
                                 variant="outlined"
+                                onChange={(e) =>{
+                                    this.state.carDetails.numofP=e.target.value;
+                                }}
                             />
 
                             <Autocomplete
@@ -117,20 +171,26 @@ class ManageCar extends Component{
                                 options={[
                                     { title: 'Auto'},
                                     { title: "Manual"}]}
-                                getOptionLabel={(option) => option.title}
+                                getOptionLabel={(option) => option.title
+                                }
                                 style={{ width: 180 }}
                                 renderInput={(params) => <TextField {...params} label="Transmission type." variant="outlined" />}
+                                onChange={(event, value) =>
+                                    this.state.carDetails.transmissionType =  value.title}
+
                             />
                             <Autocomplete
                                 id="combo-box-demo"
                                 size={"small"}
 
                                 options={[
-                                    { title: 'Auto'},
-                                    { title: "Manual"}]}
+                                    { title: 'petrol'},
+                                    { title: 'diesel'}]}
                                 getOptionLabel={(option) => option.title}
                                 style={{ width: 136 }}
                                 renderInput={(params) => <TextField {...params} label="Fuel type." variant="outlined" />}
+                                onChange={(event, value) =>
+                                    this.state.carDetails.fuelType =  value.title}
                             />
 
                             <TextField
@@ -140,6 +200,10 @@ class ManageCar extends Component{
                                 defaultValue="Hello World"
                                 style={{ width: 200 }}
                                 variant="outlined"
+                                onChange={(e) =>{
+                                    this.state.carDetails.registerNum=e.target.value;
+                                }}
+
                             />
 
                             <TextField
@@ -149,6 +213,9 @@ class ManageCar extends Component{
                                 defaultValue="Hello World"
                                 variant="outlined"
                                 style={{ width: 200 }}
+                                onChange={(e) =>{
+                                    this.state.carDetails.color=e.target.value;
+                                }}
                             />
 
                         </div>
@@ -165,31 +232,43 @@ class ManageCar extends Component{
                                 style={{width :'17%'}}
                                 size={"small"}
                                 id="outlined-required"
-                                label="Type"
+                                label="daily"
                                 variant="outlined"
+                                onChange={(e) =>{
+                                    this.state.carDetails.pricesForDaily=e.target.value;
+                                }}
                             />
                             <TextField
                                 style={{width :'17%'}}
                                 size={"small"}
                                 id="outlined-required"
-                                label="Type"
+                                label="monthly"
                                 variant="outlined"
+                                onChange={(e) =>{
+                                    this.state.carDetails.pricesForMonthly=e.target.value;
+                                }}
                             />
 
                             <TextField
 
                                 size={"small"}
                                 id="outlined-required"
-                                label="Type"
+                                label="Rs/="
                                 variant="outlined"
+                                onChange={(e) =>{
+                                    this.state.carDetails.freeMileage=e.target.value;
+                                }}
                             />
 
                             <TextField
 
                                 size={"small"}
                                 id="outlined-required"
-                                label="Type"
+                                label="Km"
                                 variant="outlined"
+                                onChange={(e) =>{
+                                    this.state.carDetails.priceForExtraKm=e.target.value;
+                                }}
                             />
                         </div>
                         <Divider />
@@ -205,49 +284,157 @@ class ManageCar extends Component{
                         <div className={classes.imageContainer}>
 
                             <div className={classes.imageDiv}
-
-                                 /*style={{
-
+                                 style={{
                                      display : 'flex',
                                      alignItems : 'center',
                                      justifyContent : 'center',
-                                     height : '75%',
-                                 /!*    background:"url(" + Link+ ")",*!/
+                                     height : '85%',
+                                     backgroundImage:"url(" +this.state.frontView+ ")",
                                      backgroundSize: 'cover'
-
-                                 }}*/
-
-                            /*onClick={(e) =>{
-                                 var S=this.state.lnk;
-                              //  e.target.style.
-
-                             e.target.style.background="url(" + Link+ ")";
-                                e.target.style.backgroundSize='cover';
-
-                                console.log(S)
-                            }}*/
-
+                                 }}
                             > </div>
-                            <div className={classes.imageDiv}>
-
-                                <Button variant="contained" color="primary"
-
-                                        onClick={() =>{
-                                            this.handleSubmit();
-                                        }
-                                        }
-
-
-
-
-                                >
-                               Submit
-                            </Button>
+                            <div className={classes.imageDiv}
+                                 style={{
+                                     display : 'flex',
+                                     alignItems : 'center',
+                                     justifyContent : 'center',
+                                     height : '85%',
+                                     backgroundImage: "url(" +this.state.backView+ ")",
+                                     backgroundSize: 'cover'
+                                 }}
+                            >
 
 
                             </div>
-                            <div className={classes.imageDiv}></div>
-                            <div className={classes.imageDiv}></div>
+
+
+
+                            <div className={classes.imageDiv}
+                                 style={{
+                                     display : 'flex',
+                                     alignItems : 'center',
+                                     justifyContent : 'center',
+                                     height : '85%',
+                                     backgroundImage:"url(" +this.state.sideView+ ")",
+                                     backgroundSize: 'cover'
+                                 }}
+                            >
+
+                            </div>
+
+                            <div className={classes.imageDiv}
+                                 style={{
+                                     display : 'flex',
+                                     alignItems : 'center',
+                                     justifyContent : 'center',
+                                     height : '85%',
+                                    backgroundImage:"url(" +this.state.interiorView+ ")",
+                                     backgroundSize: 'cover'
+                                 }}
+                            >
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div className={classes.uploadButtonContainer}>
+
+                            <div>   <input
+
+                                style={{ display: 'none'}}
+                                accept="image/*"
+                                id="contained-button-file01"
+                                multiple
+                                type="file"
+                                onChange={(e) =>{
+                                    this.setState({
+                                        frontImage: e.target.files[0],
+                                        frontView : URL.createObjectURL(e.target.files[0])
+                                    })
+
+
+                                }}
+
+
+                            />
+                                <label htmlFor="contained-button-file01">
+                                    <Button variant="contained" color="primary" component="span">
+                                        Upload
+                                    </Button>
+                                </label>
+
+                            </div>
+
+                            <div>   <input
+
+                                style={{ display: 'none'}}
+                                accept="image/*"
+                                id="contained-button-file02"
+                                multiple
+                                type="file"
+                                onChange={(e) =>{
+                                    this.setState({
+                                        backImage: e.target.files[0],
+                                        backView : URL.createObjectURL(e.target.files[0])
+
+                                    })
+                                }}
+                            />
+                                <label htmlFor="contained-button-file02">
+                                    <Button variant="contained" color="primary" component="span">
+                                        Upload
+                                    </Button>
+                                </label>
+
+                            </div>
+
+                            <div>   <input
+
+                                style={{ display: 'none'}}
+                                accept="image/*"
+                                id="contained-button-file03"
+                                multiple
+                                type="file"
+                                onChange={(e) =>{
+                                    this.setState({
+                                        sideImage: e.target.files[0],
+                                        sideView : URL.createObjectURL(e.target.files[0])
+                                    })
+                                }}
+                            />
+                                <label htmlFor="contained-button-file03">
+                                    <Button variant="contained" color="primary" component="span">
+                                        Upload
+                                    </Button>
+                                </label>
+
+                            </div>
+
+                            <div>   <input
+
+                                style={{ display: 'none'}}
+                                accept="image/*"
+                                id="contained-button-file04"
+                                multiple
+                                type="file"
+                                onChange={(e) =>{
+                                    this.setState({
+                                        interiorImage: e.target.files[0],
+                                        interiorView : URL.createObjectURL(e.target.files[0])
+                                    })
+                                }}
+                            />
+                                <label htmlFor="contained-button-file04">
+                                    <Button variant="contained" color="primary" component="span">
+                                        Upload
+                                    </Button>
+                                </label>
+
+                            </div>
+
+
 
                         </div>
 
@@ -268,7 +455,20 @@ class ManageCar extends Component{
 
                         </div>
 
-                        <div className={classes.search_container}></div>
+                        <div className={classes.search_container}>
+
+                            <Button variant="contained" color="success"
+                                    onClick={() => {
+                                        this.addCar()
+                                    }}
+                            >
+                                Upload Images
+
+
+                            </Button>
+
+
+                        </div>
 
                     </div>
 
@@ -282,8 +482,10 @@ class ManageCar extends Component{
 
         )
 
+
+
+
     }
-
-
 }
+
 export default withStyles(styleSheet) (ManageCar)

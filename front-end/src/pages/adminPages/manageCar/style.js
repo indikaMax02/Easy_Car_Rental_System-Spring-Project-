@@ -116,7 +116,7 @@ export const styleSheet={
     },
     imageContainer :{
         marginTop: '10px',
-        height : '30%',
+        height : '28%',
         backgroundColor :'#5b6161',
         display : 'flex',
         flexDirection : 'row',
@@ -126,7 +126,7 @@ export const styleSheet={
     },
 
     imageDiv : {
-        height : '80%',
+        height : '85%',
         width : '23%',
         backgroundColor : 'white'
     },
@@ -141,6 +141,18 @@ export const styleSheet={
         backgroundColor : '#5476EC',
         borderTopLeftRadius : '5px',
         borderTopRightRadius : '5px',
+
+    },
+
+    uploadButtonContainer : {
+
+        height : '7%',
+       /*  backgroundColor :'#57a0a0',*/
+        display : 'flex',
+        flexDirection : 'row',
+        alignItems : 'center',
+        justifyContent : 'space-around'
+
 
     }
 
