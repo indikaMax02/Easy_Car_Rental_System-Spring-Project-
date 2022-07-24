@@ -10,13 +10,22 @@ import AdminNavBar from "../../../components/admin/navBar";
 import Divider from "@material-ui/core/Divider";
 
 import carService from "../../../services/CarService"
+import ViewAllCarPopUp from "../../../components/admin/viewAllCarPopUp";
+
+
+
+
 
 
 
 
 class ManageCar extends Component{
+
+
     constructor(props) {
         super(props);
+
+
 
         this.state = {
             frontImage: null,
@@ -41,9 +50,27 @@ class ManageCar extends Component{
                 pricesForMonthly : '',
                 freeMileage : '',
                 priceForExtraKm : '',
-            }
+            } ,
+
+            CarDetailsSetText :{
+                vehicleId : '',
+                vehicleType : '',
+                numofP : '',
+                transmissionType : '',
+                fuelType :'',
+                registerNum : '',
+                color : '',
+                pricesForDaily : '',
+                pricesForMonthly : '',
+                freeMileage : '',
+                priceForExtraKm : '',
+            },
+
+            params : 'indika'
         }
     }
+
+
 
 
     addCarImage=async (carId) =>{
@@ -93,11 +120,9 @@ class ManageCar extends Component{
 
 
 
-
-
-
-
     render(){
+
+
 
 
         const top100Films = [
@@ -109,9 +134,7 @@ class ManageCar extends Component{
         return(
 
             <div className={classes.mainContainer}>
-
-
-               <AdminNavBar/>
+                 <AdminNavBar/>
 
                 <div className={classes.state_Bar_container}></div>
 
@@ -120,13 +143,13 @@ class ManageCar extends Component{
                     <div  className={classes.form_backGround}>
                         <div className={classes.form_textFieldForm}>
 
-                            <h4 style={{color : 'white'}}>MANAGE CARS</h4>
+                            <h7 style={{color : 'white'}}>MANAGE CARS</h7>
 
                         </div>
 
                         <Divider />
                         <div className={classes.formDividerText2Container}>
-                            <h5 style={{color : 'black'}}>Car Details</h5>
+                            <h7 style={{color : 'black'}}>Car Details</h7>
 
                         </div>
                         <Divider />
@@ -137,10 +160,11 @@ class ManageCar extends Component{
                                 size={"small"}
                                 id="outlined-required"
                                 label="Vehical ID"
-                                variant="outlined"
+                                variant="standard"
                                 onChange={(e) =>{
                                     this.state.carDetails.vehicleId=e.target.value;
                                 }}
+                                value={this.state.CarDetailsSetText.vehicleId}
 
                             />
 
@@ -148,61 +172,58 @@ class ManageCar extends Component{
                                 size={"small"}
                                 id="outlined-required"
                                 label="Type"
-                                variant="outlined"
+                                variant="standard"
                                 onChange={(e) =>{
                                     this.state.carDetails.vehicleType=e.target.value;
                                 }}
+                                value={this.state.CarDetailsSetText.vehicleType}
                             />
 
                             <TextField
                                 size={"small"}
                                 id="outlined-required"
                                 label="Num of Passengers"
-                                variant="outlined"
+                                variant="standard"
                                 onChange={(e) =>{
                                     this.state.carDetails.numofP=e.target.value;
                                 }}
-                            />
-
-                            <Autocomplete
-                                id="combo-box-demo"
-                                size={"small"}
-
-                                options={[
-                                    { title: 'Auto'},
-                                    { title: "Manual"}]}
-                                getOptionLabel={(option) => option.title
-                                }
-                                style={{ width: 180 }}
-                                renderInput={(params) => <TextField {...params} label="Transmission type." variant="outlined" />}
-                                onChange={(event, value) =>
-                                    this.state.carDetails.transmissionType =  value.title}
-
-                            />
-                            <Autocomplete
-                                id="combo-box-demo"
-                                size={"small"}
-
-                                options={[
-                                    { title: 'petrol'},
-                                    { title: 'diesel'}]}
-                                getOptionLabel={(option) => option.title}
-                                style={{ width: 136 }}
-                                renderInput={(params) => <TextField {...params} label="Fuel type." variant="outlined" />}
-                                onChange={(event, value) =>
-                                    this.state.carDetails.fuelType =  value.title}
+                                value={this.state.CarDetailsSetText.numofP}
                             />
 
                             <TextField
                                 size={"small"}
                                 id="outlined-required"
+                                label="Auto or Mannual"
+                                variant="standard"
+                                onChange={(e) =>{
+                                    this.state.carDetails.numofP=e.target.value;
+                                }}
+                                value={this.state.CarDetailsSetText.transmissionType}
+                            />
+
+                            <TextField
+                                size={"small"}
+                                id="outlined-required"
+                                label="Petrol or Diesel"
+                                variant="standard"
+                                onChange={(e) =>{
+                                    this.state.carDetails.numofP=e.target.value;
+                                }}
+                                value={this.state.CarDetailsSetText.transmissionType}
+                            />
+
+
+
+                            <TextField
+                                size={"small"}
+                                id="outlined-required"
                                 label="Registration Number"
-                                defaultValue="Hello World"
-                                style={{ width: 200 }}
-                                variant="outlined"
+                                style={{ width: 160 }}
+                                variant="standard"
                                 onChange={(e) =>{
                                     this.state.carDetails.registerNum=e.target.value;
                                 }}
+                                value={this.state.CarDetailsSetText.registerNum}
 
                             />
 
@@ -210,20 +231,20 @@ class ManageCar extends Component{
                                 size={"small"}
                                 id="outlined-required"
                                 label="Color"
-                                defaultValue="Hello World"
-                                variant="outlined"
-                                style={{ width: 200 }}
+                                variant="standard"
+                                style={{ width: 160 }}
                                 onChange={(e) =>{
                                     this.state.carDetails.color=e.target.value;
                                 }}
+                                value={this.state.CarDetailsSetText.color}
                             />
 
                         </div>
                         <Divider />
                         <div className={classes.formDividerTextContainer}>
-                            <h5 style={{color : 'black'}}>Prices for the rent durations.</h5>
-                            <h5 style={{color : 'black'}}>Free mileage for the price and duration.</h5>
-                            <h5 style={{color : 'black'}}>Price for extra KM.</h5>
+                            <h7 style={{color : 'black'}}>Prices for the rent durations.</h7>
+                            <h7 style={{color : 'black'}}>Free mileage for the price and duration.</h7>
+                            <h7 style={{color : 'black'}}>Price for extra KM.</h7>
                         </div>
                         <Divider />
                         <div className={classes.formTextField2Container}>
@@ -233,31 +254,22 @@ class ManageCar extends Component{
                                 size={"small"}
                                 id="outlined-required"
                                 label="daily"
-                                variant="outlined"
+                                variant="standard"
                                 onChange={(e) =>{
                                     this.state.carDetails.pricesForDaily=e.target.value;
                                 }}
+                                value={this.state.CarDetailsSetText.pricesForDaily}
                             />
                             <TextField
                                 style={{width :'17%'}}
                                 size={"small"}
                                 id="outlined-required"
                                 label="monthly"
-                                variant="outlined"
+                                variant="standard"
                                 onChange={(e) =>{
                                     this.state.carDetails.pricesForMonthly=e.target.value;
                                 }}
-                            />
-
-                            <TextField
-
-                                size={"small"}
-                                id="outlined-required"
-                                label="Rs/="
-                                variant="outlined"
-                                onChange={(e) =>{
-                                    this.state.carDetails.freeMileage=e.target.value;
-                                }}
+                                value={this.state.CarDetailsSetText.pricesForMonthly}
                             />
 
                             <TextField
@@ -265,18 +277,31 @@ class ManageCar extends Component{
                                 size={"small"}
                                 id="outlined-required"
                                 label="Km"
-                                variant="outlined"
+                                variant="standard"
+                                onChange={(e) =>{
+                                    this.state.carDetails.freeMileage=e.target.value;
+                                }}
+                                value={this.state.CarDetailsSetText.freeMileage}
+                            />
+
+                            <TextField
+
+                                size={"small"}
+                                id="outlined-required"
+                                label="Rs/="
+                                variant="standard"
                                 onChange={(e) =>{
                                     this.state.carDetails.priceForExtraKm=e.target.value;
                                 }}
+                                value={this.state.CarDetailsSetText.priceForExtraKm}
                             />
                         </div>
                         <Divider />
                         <div className={classes.formDividerText2Container}>
-                            <h5 style={{color : 'black'}}>Front View</h5>
-                            <h5 style={{color : 'black'}}>Back View</h5>
-                            <h5 style={{color : 'black'}}>Side View</h5>
-                            <h5 style={{color : 'black'}}>Interior</h5>
+                            <h7 style={{color : 'black'}}>Front View</h7>
+                            <h7 style={{color : 'black'}}>Back View</h7>
+                            <h7 style={{color : 'black'}}>Side View</h7>
+                            <h7 style={{color : 'black'}}>Interior</h7>
                         </div>
                         <Divider />
 
@@ -439,6 +464,8 @@ class ManageCar extends Component{
                     <div  className={classes.form_backGround_right}>
 
                         <div className={classes.title_container}>
+
+
                             <div className={classes.form_textFieldForm2}>
 
                                 <h4 style={{color : 'white'}}>CAR STATE</h4>
@@ -483,7 +510,11 @@ class ManageCar extends Component{
 
                             </div>
 
+
                             <div className={classes.clearButtonContainer}>
+
+                                <ViewAllCarPopUp bool={true}/>
+
                                 <Button variant="outlined" style={{color : 'back' , width : '95%'}}>
                                     Clear All
                                 </Button>

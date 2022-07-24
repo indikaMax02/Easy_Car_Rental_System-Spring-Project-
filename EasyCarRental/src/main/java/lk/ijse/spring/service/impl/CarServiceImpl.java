@@ -9,6 +9,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class CarServiceImpl implements CarService {
     @Autowired
@@ -52,5 +55,21 @@ public class CarServiceImpl implements CarService {
             throw new RuntimeException("Car not found...");
         }
     }
+
+    @Override
+    public List<CarDTO> getAllCars() {
+
+        List<Car> all = carRepo.findAll();
+
+        List<CarDTO> allcars=new ArrayList<>();
+
+        for (Car car : all) {
+           allcars.add(mapper.map(car,CarDTO.class));
+        }
+
+        return allcars;
+
+    }
+
 
 }

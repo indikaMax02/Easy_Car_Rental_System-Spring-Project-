@@ -85,12 +85,14 @@ export const styleSheet={
         flexWrap : 'wrap',
         flexDirection : 'row',
         alignItems : 'center',
-        justifyContent : 'space-around'
+        justifyContent : 'space-around',
+        marginBottom : '15px'
 
     },
     formDividerTextContainer  : {
         height : '5%',
         /*  backgroundColor : '#9e62ce',*/
+
         display : 'flex',
         flexDirection : 'row',
         alignItems : 'center',
@@ -177,9 +179,10 @@ export const styleSheet={
 
     clearButtonContainer : {
         display : 'flex',
-        flexDirection : 'row',
+        flexDirection : 'column',
         alignItems : 'center',
-        justifyContent : 'center',
+        height : '55%',
+        justifyContent : 'space-evenly',
 
 
     }

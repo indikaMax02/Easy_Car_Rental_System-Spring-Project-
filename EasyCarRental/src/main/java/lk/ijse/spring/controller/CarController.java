@@ -2,6 +2,7 @@ package lk.ijse.spring.controller;
 
 import lk.ijse.spring.dto.CarDTO;
 import lk.ijse.spring.dto.ImageDTO;
+import lk.ijse.spring.entity.Car;
 import lk.ijse.spring.service.CarService;
 import lk.ijse.spring.util.FileDownloadUtil;
 import lk.ijse.spring.util.FileUploadUtil;
@@ -16,11 +17,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.print.attribute.standard.Media;
 import javax.servlet.ServletContext;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 @RestController
 @RequestMapping("car")
@@ -132,6 +135,18 @@ public class CarController {
         }
 
         return new ResponseUtil(200,"car Delete success",null);
+    }
+
+
+    @GetMapping(path ="getAllCars" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getAllCars(){
+
+        List<CarDTO> allCars = carService.getAllCars();
+
+
+
+        return new ResponseUtil(200,"Get All Cars",allCars);
+
     }
 
 
