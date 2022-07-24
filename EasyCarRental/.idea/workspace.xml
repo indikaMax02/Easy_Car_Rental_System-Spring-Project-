@@ -17,8 +17,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f40b6a14-c7a3-40b5-b2c2-78391906da26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/src/pages/adminPages/manageCar/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/pages/adminPages/manageCar/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/services/CarService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/services/CarService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/pages/adminPages/manageCar/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/pages/adminPages/manageCar/style.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +281,7 @@
       <workItem from="1658604958522" duration="68000" />
       <workItem from="1658636130964" duration="487000" />
       <workItem from="1658636640649" duration="313000" />
-      <workItem from="1658637701170" duration="1836000" />
+      <workItem from="1658637701170" duration="7345000" />
     </task>
     <servers />
   </component>
@@ -311,11 +313,11 @@
       <screen x="0" y="0" width="2646" height="726" />
     </state>
     <state x="278" y="24" width="800" height="683" key="#ESLint/0.0.2646.726@0.0.2646.726" timestamp="1657950769370" />
-    <state x="278" y="24" width="800" height="683" key="#Inspections" timestamp="1658546903035">
-      <screen x="0" y="0" width="1366" height="720" />
+    <state x="278" y="24" width="800" height="683" key="#Inspections" timestamp="1658642050604">
+      <screen x="0" y="0" width="1366" height="726" />
     </state>
     <state x="278" y="24" key="#Inspections/0.0.1366.720@0.0.1366.720" timestamp="1658546903035" />
-    <state x="278" y="24" width="800" height="683" key="#Inspections/0.0.1366.726@0.0.1366.726" timestamp="1657253993720" />
+    <state x="278" y="24" width="800" height="683" key="#Inspections/0.0.1366.726@0.0.1366.726" timestamp="1658642050604" />
     <state x="163" y="0" key="#Project_Structure" timestamp="1657104066346">
       <screen x="0" y="0" width="1366" height="720" />
     </state>

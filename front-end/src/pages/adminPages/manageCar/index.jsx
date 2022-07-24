@@ -431,16 +431,8 @@ class ManageCar extends Component{
                                         Upload
                                     </Button>
                                 </label>
-
                             </div>
-
-
-
                         </div>
-
-
-
-
                     </div>
 
 
@@ -455,17 +447,49 @@ class ManageCar extends Component{
 
                         </div>
 
-                        <div className={classes.search_container}>
+                        <div className={classes.sideButton_container}>
 
-                            <Button variant="contained" color="success"
-                                    onClick={() => {
-                                        this.addCar()
-                                    }}
-                            >
-                                Upload Images
+                                 <div className={classes.search_container}>
+                                     <TextField
+                                         label="Search Here"
+                                         id="outlined-size-small"
+                                         variant="outlined"
+                                         size="small"
+
+                                         style={{borderRadius : '20px',width: '70%'}}
+                                     />
+                                     <Button variant="outlined" style={{color : 'green'}}>
+                                         Search
+                                     </Button>
+                                 </div>
+                            <Divider/>
+
+                            <div className={classes.button_container}>
+
+                                <Button variant="outlined" style={{color : 'green' , width : '30%'}}
+                                    onClick={() =>{this.addCar()}}
+                                >
+                                    Save
+                                </Button>
+
+                                <Button variant="outlined" style={{color : 'blue', width : '30%'}}>
+                                    Update
+                                </Button>
+
+                                <Button variant="outlined" style={{color : 'red' , width : '30%'}}>
+                                    Delete
+                                </Button>
 
 
-                            </Button>
+                            </div>
+
+                            <div className={classes.clearButtonContainer}>
+                                <Button variant="outlined" style={{color : 'back' , width : '95%'}}>
+                                    Clear All
+                                </Button>
+                            </div>
+
+
 
 
                         </div>

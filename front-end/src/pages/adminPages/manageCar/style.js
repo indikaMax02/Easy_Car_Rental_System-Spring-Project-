@@ -59,7 +59,7 @@ export const styleSheet={
         boxShadow : '5px 5px 10px 1.5px',
     },
 
-    search_container : {
+    sideButton_container : {
         display : 'flex',
         width : '100%',
         height : '60%',
@@ -152,6 +152,34 @@ export const styleSheet={
         flexDirection : 'row',
         alignItems : 'center',
         justifyContent : 'space-around'
+
+
+    },
+    search_container : {
+        marginTop : '20px',
+        height : '20%',
+        display : 'flex',
+        flexDirection : 'row',
+        alignItems : 'center',
+        justifyContent : 'space-evenly'
+
+
+    },
+
+    button_container : {
+        marginTop : '20px',
+        height : '25%',
+        display : 'flex',
+        flexDirection : 'row',
+        alignItems : 'center',
+        justifyContent : 'space-evenly'
+    },
+
+    clearButtonContainer : {
+        display : 'flex',
+        flexDirection : 'row',
+        alignItems : 'center',
+        justifyContent : 'center',
 
 
     }
