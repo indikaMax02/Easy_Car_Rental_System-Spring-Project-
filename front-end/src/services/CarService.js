@@ -1,9 +1,9 @@
 import axios from "../axios";
 
 class CarService {
-    addCarImage = async (data) => {
+    addCarImage = async (data,carId) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('car/addCarImage?carId=C001',data)
+            axios.post('car/addCarImage?carId='+carId,data)
 
                 .then((res) => {
                     return resolve(res)

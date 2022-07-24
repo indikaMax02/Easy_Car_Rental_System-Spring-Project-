@@ -9,7 +9,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import AdminNavBar from "../../../components/admin/navBar";
 import Divider from "@material-ui/core/Divider";
 
-import postService from "../../../services/CarService"
+import carService from "../../../services/CarService"
 
 
 
@@ -46,7 +46,7 @@ class ManageCar extends Component{
     }
 
 
-    addCarImage=async () =>{
+    addCarImage=async (carId) =>{
 
         var bodyFormData = new FormData();
         bodyFormData.append('param', this.state.frontImage);
@@ -54,7 +54,7 @@ class ManageCar extends Component{
         bodyFormData.append('param', this.state.sideImage);
         bodyFormData.append('param', this.state.interiorImage);
 
-         let res = await postService.addCarImage(bodyFormData);
+         let res = await carService.addCarImage(bodyFormData,carId);
          if (res.data.code===200){alert(res.data.message)}else {
              alert(res.data.message);
          }
@@ -78,11 +78,11 @@ class ManageCar extends Component{
             state : 'Parking'
         }
 
-        let res = await postService.addCar(carDetails);
+        let res = await carService.addCar(carDetails);
         if (res.data.code==200){
             alert(res.data.message);
 
-            this.addCarImage();
+            this.addCarImage(carDetails.vehicleId);
 
         }else {
             alert(res.data.message);
