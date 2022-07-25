@@ -5,13 +5,14 @@ import {styleSheet} from "./style";
 import Button from "@material-ui/core/Button";
 
 import TextField from "@material-ui/core/TextField";
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import AdminNavBar from "../../../components/admin/navBar";
 import Divider from "@material-ui/core/Divider";
 
 import carService from "../../../services/CarService"
-import ViewAllCarPopUp from "../../../components/admin/viewAllCarPopUp";
 
+import {TextValidator, ValidatorForm} from "react-material-ui-form-validator";
+import ViewAllCarPopUp from "../../../components/admin/viewAllCarPopUpTable"
+import ViewAllCarPopUpTable from "../../../components/admin/viewAllCarPopUpTable";
 
 
 
@@ -52,22 +53,19 @@ class ManageCar extends Component{
                 priceForExtraKm : '',
             } ,
 
-            CarDetailsSetText :{
-                vehicleId : '',
-                vehicleType : '',
-                numofP : '',
-                transmissionType : '',
-                fuelType :'',
-                registerNum : '',
-                color : '',
-                pricesForDaily : '',
-                pricesForMonthly : '',
-                freeMileage : '',
-                priceForExtraKm : '',
-            },
 
-            params : 'indika'
+                unit: 'indika',
+
+
+
         }
+    }
+
+    changeUnit(item){
+        this.setState({
+                unit : item
+
+        })
     }
 
 
@@ -133,6 +131,7 @@ class ManageCar extends Component{
 
         return(
 
+
             <div className={classes.mainContainer}>
                  <AdminNavBar/>
 
@@ -140,7 +139,7 @@ class ManageCar extends Component{
 
                 <div className={classes.form_Container}>
 
-                    <div  className={classes.form_backGround}>
+                    <div    className={classes.form_backGround}>
                         <div className={classes.form_textFieldForm}>
 
                             <h7 style={{color : 'white'}}>MANAGE CARS</h7>
@@ -156,89 +155,94 @@ class ManageCar extends Component{
 
                         <div className={classes.formTextFieldContainer}>
 
-                            <TextField
-                                size={"small"}
-                                id="outlined-required"
-                                label="Vehical ID"
-                                variant="standard"
-                                onChange={(e) =>{
-                                    this.state.carDetails.vehicleId=e.target.value;
+                            <ValidatorForm ref="form" className={classes.validaterForm} >
+
+                                <TextValidator
+                                id="outlinedbasic"
+                                placeholder="Customer Id"
+                                variant='outlined'
+                                label="CarId"
+                                size="small"
+                                style={{ width: '100%' }}
+                                value={this.state.unit}
+                                onChange={(e) => {
+                                    this.setState({
+                                        unit : e.target.value
+                                    })
                                 }}
-                                value={this.state.CarDetailsSetText.vehicleId}
+                                validators={['required']}
+                                />
 
-                            />
+                                <TextValidator
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="Type"
+                                    variant="outlined"
+                                    onChange={(e) =>{
+                                        this.state.carDetails.vehicleType=e.target.value;
+                                    }}
 
-                            <TextField
-                                size={"small"}
-                                id="outlined-required"
-                                label="Type"
-                                variant="standard"
-                                onChange={(e) =>{
-                                    this.state.carDetails.vehicleType=e.target.value;
-                                }}
-                                value={this.state.CarDetailsSetText.vehicleType}
-                            />
+                                />
 
-                            <TextField
-                                size={"small"}
-                                id="outlined-required"
-                                label="Num of Passengers"
-                                variant="standard"
-                                onChange={(e) =>{
-                                    this.state.carDetails.numofP=e.target.value;
-                                }}
-                                value={this.state.CarDetailsSetText.numofP}
-                            />
+                                <TextValidator
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="Num of Passengers"
+                                    variant="outlined"
+                                    onChange={(e) =>{
+                                        this.state.carDetails.numofP=e.target.value;
+                                    }}
 
-                            <TextField
-                                size={"small"}
-                                id="outlined-required"
-                                label="Auto or Mannual"
-                                variant="standard"
-                                onChange={(e) =>{
-                                    this.state.carDetails.numofP=e.target.value;
-                                }}
-                                value={this.state.CarDetailsSetText.transmissionType}
-                            />
+                                />
 
-                            <TextField
-                                size={"small"}
-                                id="outlined-required"
-                                label="Petrol or Diesel"
-                                variant="standard"
-                                onChange={(e) =>{
-                                    this.state.carDetails.numofP=e.target.value;
-                                }}
-                                value={this.state.CarDetailsSetText.transmissionType}
-                            />
+                                <TextValidator
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="Auto or Mannual"
+                                    variant="outlined"
+                                    style={{ width: 180 }}
+                                    onChange={(e) =>{
+                                        this.state.carDetails.numofP=e.target.value;
+                                    }}
+
+                                />
+
+                                <TextValidator
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="Petrol or Diesel"
+                                    variant="outlined"
+                                    style={{ width: 180 }}
+                                    onChange={(e) =>{
+                                        this.state.carDetails.numofP=e.target.value;
+                                    }}
+
+                                />
+
+                                <TextValidator
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="Registration Number"
+                                    style={{ width: 180 }}
+                                    variant="outlined"
+                                    onChange={(e) =>{
+                                        this.state.carDetails.registerNum=e.target.value;
+                                    }}
 
 
+                                />
+                                <TextValidator
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="Color"
+                                    variant="outlined"
+                                    style={{ width: 180 }}
+                                    onChange={(e) =>{
+                                        this.state.carDetails.color=e.target.value;
+                                    }}
 
-                            <TextField
-                                size={"small"}
-                                id="outlined-required"
-                                label="Registration Number"
-                                style={{ width: 160 }}
-                                variant="standard"
-                                onChange={(e) =>{
-                                    this.state.carDetails.registerNum=e.target.value;
-                                }}
-                                value={this.state.CarDetailsSetText.registerNum}
-
-                            />
-
-                            <TextField
-                                size={"small"}
-                                id="outlined-required"
-                                label="Color"
-                                variant="standard"
-                                style={{ width: 160 }}
-                                onChange={(e) =>{
-                                    this.state.carDetails.color=e.target.value;
-                                }}
-                                value={this.state.CarDetailsSetText.color}
-                            />
-
+                                />
+                            </ValidatorForm>
                         </div>
                         <Divider />
                         <div className={classes.formDividerTextContainer}>
@@ -249,52 +253,68 @@ class ManageCar extends Component{
                         <Divider />
                         <div className={classes.formTextField2Container}>
 
-                            <TextField
-                                style={{width :'17%'}}
-                                size={"small"}
-                                id="outlined-required"
-                                label="daily"
-                                variant="standard"
-                                onChange={(e) =>{
-                                    this.state.carDetails.pricesForDaily=e.target.value;
-                                }}
-                                value={this.state.CarDetailsSetText.pricesForDaily}
-                            />
-                            <TextField
-                                style={{width :'17%'}}
-                                size={"small"}
-                                id="outlined-required"
-                                label="monthly"
-                                variant="standard"
-                                onChange={(e) =>{
-                                    this.state.carDetails.pricesForMonthly=e.target.value;
-                                }}
-                                value={this.state.CarDetailsSetText.pricesForMonthly}
-                            />
+                            <ValidatorForm ref="form" className={classes.validaterForm} >
 
-                            <TextField
+                                <TextValidator
+                                    style={{width :'17%'}}
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="daily"
+                                    variant="outlined"
+                                    style={{ width: 180 }}
+                                    onChange={(e) =>{
+                                        this.state.carDetails.pricesForDaily=e.target.value;
+                                    }}
 
-                                size={"small"}
-                                id="outlined-required"
-                                label="Km"
-                                variant="standard"
-                                onChange={(e) =>{
-                                    this.state.carDetails.freeMileage=e.target.value;
-                                }}
-                                value={this.state.CarDetailsSetText.freeMileage}
-                            />
+                                />
 
-                            <TextField
+                                <TextValidator
+                                    style={{width :'17%'}}
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="monthly"
+                                    variant="outlined"
+                                    style={{ width: 180 }}
+                                    onChange={(e) =>{
+                                        this.state.carDetails.pricesForMonthly=e.target.value;
+                                    }}/>
 
-                                size={"small"}
-                                id="outlined-required"
-                                label="Rs/="
-                                variant="standard"
-                                onChange={(e) =>{
-                                    this.state.carDetails.priceForExtraKm=e.target.value;
-                                }}
-                                value={this.state.CarDetailsSetText.priceForExtraKm}
-                            />
+                                <TextValidator
+
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="Km"
+                                    variant="outlined"
+                                    style={{ width: 180 }}
+                                    onChange={(e) =>{
+                                        this.state.carDetails.freeMileage=e.target.value;
+                                    }}
+
+                                />
+
+                                <TextValidator
+
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="Rs/="
+                                    variant="outlined"
+                                    style={{ width: 180 }}
+                                    onChange={(e) =>{
+                                        this.state.carDetails.priceForExtraKm=e.target.value;
+                                    }}
+
+                                />
+
+                            </ValidatorForm>
+
+
+
+
+
+
+
+
+
                         </div>
                         <Divider />
                         <div className={classes.formDividerText2Container}>
@@ -395,7 +415,7 @@ class ManageCar extends Component{
                             <div>   <input
 
                                 style={{ display: 'none'}}
-                                accept="image/*"
+                                accept="image{/*"
                                 id="contained-button-file02"
                                 multiple
                                 type="file"
@@ -418,7 +438,7 @@ class ManageCar extends Component{
                             <div>   <input
 
                                 style={{ display: 'none'}}
-                                accept="image/*"
+                                accept="image/!*"
                                 id="contained-button-file03"
                                 multiple
                                 type="file"
@@ -440,7 +460,7 @@ class ManageCar extends Component{
                             <div>   <input
 
                                 style={{ display: 'none'}}
-                                accept="image/*"
+                                accept="image/!*"
                                 id="contained-button-file04"
                                 multiple
                                 type="file"
@@ -499,7 +519,14 @@ class ManageCar extends Component{
                                     Save
                                 </Button>
 
-                                <Button variant="outlined" style={{color : 'blue', width : '30%'}}>
+                                <Button variant="outlined" style={{color : 'blue', width : '30%'}}
+
+                                        onClick={() =>{
+                                            this.setState({
+                                                unit : "madushanka"
+                                            })
+                                        }}
+                                >
                                     Update
                                 </Button>
 
@@ -513,7 +540,11 @@ class ManageCar extends Component{
 
                             <div className={classes.clearButtonContainer}>
 
-                                <ViewAllCarPopUp bool={true}/>
+                                <ViewAllCarPopUpTable data={
+
+                                    {unit:this.state.unit, changeUnit:this.changeUnit.bind(this) }
+
+                                }/>
 
                                 <Button variant="outlined" style={{color : 'back' , width : '95%'}}>
                                     Clear All

@@ -21,6 +21,7 @@ export const styleSheet={
     },
     contact_container : {
             display : 'flex',
+            alignItems : 'center',
             justifyContent : 'center',
             backgroundColor: '#5476EC',
             height: '100%',
@@ -228,7 +229,9 @@ export const styleSheet={
         height : '50px',
 
 
-    }
+    },
+
+
 
 
 

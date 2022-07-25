@@ -19,6 +19,7 @@
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
+    "react-material-ui-form-validator": "^3.0.1",
     "react-meta-tags": "^1.0.1",
     "react-scripts": "5.0.1",
     "reactjs-popup": "^2.0.5",

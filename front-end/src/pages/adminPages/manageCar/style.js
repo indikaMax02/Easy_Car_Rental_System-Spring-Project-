@@ -80,7 +80,7 @@ export const styleSheet={
     },
     formTextFieldContainer : {
         height : '25%',
-      /*   backgroundColor : '#9e62ce',*/
+       /*  backgroundColor : '#9e62ce',*/
         display : 'flex',
         flexWrap : 'wrap',
         flexDirection : 'row',
@@ -89,6 +89,19 @@ export const styleSheet={
         marginBottom : '15px'
 
     },
+    validaterForm : {
+        width : '100%',
+        height : '100%',
+    /*    backgroundColor : "red",*/
+        display : 'flex',
+        flexDirection : 'row',
+        flexWrap: 'wrap',
+        alignItems : 'center',
+        justifyContent : 'space-evenly'
+    },
+
+
+
     formDividerTextContainer  : {
         height : '5%',
         /*  backgroundColor : '#9e62ce',*/

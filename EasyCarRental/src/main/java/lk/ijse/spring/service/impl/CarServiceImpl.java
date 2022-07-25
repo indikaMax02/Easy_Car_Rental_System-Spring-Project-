@@ -60,9 +60,7 @@ public class CarServiceImpl implements CarService {
     public List<CarDTO> getAllCars() {
 
         List<Car> all = carRepo.findAll();
-
         List<CarDTO> allcars=new ArrayList<>();
-
         for (Car car : all) {
            allcars.add(mapper.map(car,CarDTO.class));
         }

@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import carService from "../../../services/CarService";
 
 import {makeStyles} from "@material-ui/core/styles";
-import RowEditControlGrid from "../carTable/table";
 import Paper from "@material-ui/core/Paper";
 import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
@@ -15,7 +14,6 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import TablePagination from "@material-ui/core/TablePagination";
-import ManageCar from "../../../pages/adminPages/manageCar";
 
 
 const columns = [
@@ -61,12 +59,18 @@ const useStyles = makeStyles({
 const rows = [
 
 ];
-export default function ViewAllCarPopUp() {
+
+
+
+export default function ViewAllCarPopUpTable(props) {
+
+
+
+    console.log()
 
     const getAllCars=async () =>{
         let res = await carService.getAllCar();
         if (res.data.code==200){
-
             //console.log(res.data.data[0].vehicleId);
             rows[0]=createData(res.data.data[0].vehicleId,res.data.data[0].vehicleType,res.data.data[0].numofP,res.data.data[0].transmissionType)
             setShow(true)
@@ -90,10 +94,16 @@ export default function ViewAllCarPopUp() {
 
     return (
         <div>
+
+           {/* <div>{props.data.unit}</div>*/}
+
+
             <Button variant="primary" onClick={() => {
+
                 getAllCars();
+
                }}>
-                Custom Width Modal
+                View All Cars
             </Button>
             <Modal
                 size={"xl"}
@@ -109,14 +119,6 @@ export default function ViewAllCarPopUp() {
                 </Modal.Header>
                 <Modal.Body>
                     {/*table*/}
-
-
-
-                    {/*  <RowEditControlGrid/>*/}
-
-
-
-
                     <Paper className={classes.root}>
                         <TableContainer className={classes.container}>
                             < Table stickyHeader aria-label="sticky table">
@@ -141,9 +143,12 @@ export default function ViewAllCarPopUp() {
                                         return (
                                             <TableRow hover role="checkbox" tabIndex={-1} key={row.code}
 
-                                                     onClick={
-                                                     /*    console.log(row.name);*/
-                                                         <ManageCar/>
+                                                     onClick={() =>{
+                                                         console.log(row.name)
+                                                     props.data.changeUnit(row.name);
+                                                         setShow(false)
+
+                                                     }
                                                      }
 
                                             >

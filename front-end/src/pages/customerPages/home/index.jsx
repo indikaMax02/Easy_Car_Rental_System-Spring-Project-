@@ -9,8 +9,6 @@ import {TbPower} from "react-icons/tb";
 import Button from "@material-ui/core/Button";
 import {HiSearch} from "react-icons/hi";
 import {RiAddCircleFill} from "react-icons/ri";
-import Grid from "@material-ui/core/Grid";
-import {Dropdown} from "semantic-ui-react";
 import {HiArrowSmRight} from "react-icons/hi";
 
 
@@ -39,7 +37,7 @@ class NavBar extends Component {
 
                     <div className={classes.contact_container}>
 
-                        <p style={{color: 'white', marginLeft: '23%'}}>Call Us : 0814 251 152</p>
+                        <p style={{color: 'white', marginLeft: '23%' }}>Call Us : 0814 251 152</p>
 
                     </div>
 
