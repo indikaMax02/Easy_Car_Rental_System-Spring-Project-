@@ -14,37 +14,27 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import TablePagination from "@material-ui/core/TablePagination";
+import axios from "axios";
+import {element} from "prop-types";
+
 
 
 const columns = [
-    { id: 'name', label: 'Name', minWidth: 170 },
-    { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
-    {
-        id: 'population',
-        label: 'Population',
-        minWidth: 170,
-        align: 'right',
-        format: (value) => value.toLocaleString('en-US'),
-    },
-    {
-        id: 'size',
-        label: 'Size\u00a0(km\u00b2)',
-        minWidth: 170,
-        align: 'right',
-        format: (value) => value.toLocaleString('en-US'),
-    },
-    {
-        id: 'density',
-        label: 'Density',
-        minWidth: 170,
-        align: 'right',
-        format: (value) => value.toFixed(2),
-    },
+    { id: 'carId', label: "CarId", minWidth: 170 },
+    { id: 'brand', label: "Brand", minWidth: 100 },
+    {id: 'numOfp', label: 'Number Of Passenger', minWidth: 170, align: 'right'},
+    {id: 'TransType', label: "Transmission Type", minWidth: 170, align: 'right'},
+    {id: 'fuelType', label: 'Fuel Type', minWidth: 170, align: 'right'},
+    {id: 'regNum', label: 'Register Number', minWidth: 170, align: 'right'},
+    {id: 'color', label: 'Color', minWidth: 170, align: 'right'},
+    {id: 'priceDaily', label: 'Prices for the rent Daily', minWidth: 170, align: 'right'},
+    {id: 'priceMonthly', label: 'Prices for the rent monthly', minWidth: 170, align: 'right'},
+    {id: 'freeMileage', label: 'Free mileage', minWidth: 170, align: 'right'},
+    {id: 'pOfExtraKm', label: 'Price for extra KM', minWidth: 170, align: 'right'},
 ];
 
-function createData(name, code, population, size) {
-    const density = population / size;
-    return { name, code, population, size, density };
+function createData(carId, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,freeMileage,pOfExtraKm) {
+    return { carId, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,freeMileage,pOfExtraKm };
 }
 
 const useStyles = makeStyles({
@@ -65,23 +55,60 @@ const rows = [
 export default function ViewAllCarPopUpTable(props) {
 
 
-
-    console.log()
-
     const getAllCars=async () =>{
         let res = await carService.getAllCar();
+
         if (res.data.code==200){
             //console.log(res.data.data[0].vehicleId);
-            rows[0]=createData(res.data.data[0].vehicleId,res.data.data[0].vehicleType,res.data.data[0].numofP,res.data.data[0].transmissionType)
+            var i=0;
+            for (let dataKey of res.data.data) {
+                rows[i]=createData(dataKey.vehicleId,dataKey.brand,dataKey.numOfPassenger,dataKey.transmissionType,dataKey.fuelType,dataKey.priceOfRentDurationDaily,dataKey.priceOfRentDurationMonthly,dataKey.freeMileageForPriceAndDuration,dataKey.priceOfExtraKm,dataKey.registerNumber,dataKey.color)
+                i++;
+            }
             setShow(true)
         }
 
     }
 
+
+
     const [show, setShow] = useState(false);
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [frontImage,setFrontImage]=React.useState(null)
+
+
+    const loadCarDetails=async (carId,view, brand, numOfp, TransType, fuelType, regNum, color,priceDaily,priceMonthly,freeMileage,pOfExtraKm) =>{
+        let frontImage;
+        let backImage;
+        let sideImage;
+        let interiorImage;
+
+
+
+        let res1 = await carService.getCarImage(carId,"Front");
+        if (res1.status===200) {
+              frontImage=URL.createObjectURL(res1.data)
+        }
+        let res2 = await carService.getCarImage(carId,"Back");
+        if (res1.status===200) {
+            backImage=URL.createObjectURL(res2.data)
+        }
+        let res3 = await carService.getCarImage(carId,"Side");
+        if (res1.status===200) {
+            sideImage=URL.createObjectURL(res3.data)
+        }
+        let res4 = await carService.getCarImage(carId,"Interior");
+        if (res1.status===200) {
+            interiorImage=URL.createObjectURL(res4.data)
+        }
+            props.data.changeStateCarDetails(carId, brand, numOfp, TransType,fuelType,regNum, color, priceDaily, priceMonthly, freeMileage, pOfExtraKm,frontImage,backImage,sideImage,interiorImage);
+
+        }
+
+
+
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -94,10 +121,6 @@ export default function ViewAllCarPopUpTable(props) {
 
     return (
         <div>
-
-           {/* <div>{props.data.unit}</div>*/}
-
-
             <Button variant="primary" onClick={() => {
 
                 getAllCars();
@@ -143,10 +166,12 @@ export default function ViewAllCarPopUpTable(props) {
                                         return (
                                             <TableRow hover role="checkbox" tabIndex={-1} key={row.code}
 
-                                                     onClick={() =>{
-                                                         console.log(row.name)
-                                                     props.data.changeUnit(row.name);
+                                                     onClick={async () => {
+                                                         loadCarDetails(row.carId,"Back",row.carId, row.brand, row.numOfp, row.TransType, row.fuelType, row.regNum, row.color, row.priceDaily, row.priceMonthly, row.freeMileage, row.pOfExtraKm)
                                                          setShow(false)
+
+
+
 
                                                      }
                                                      }

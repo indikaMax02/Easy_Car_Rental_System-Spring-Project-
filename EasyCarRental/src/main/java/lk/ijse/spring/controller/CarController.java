@@ -2,6 +2,7 @@ package lk.ijse.spring.controller;
 
 import lk.ijse.spring.dto.CarDTO;
 import lk.ijse.spring.dto.ImageDTO;
+import lk.ijse.spring.dto.Imge;
 import lk.ijse.spring.entity.Car;
 import lk.ijse.spring.service.CarService;
 import lk.ijse.spring.util.FileDownloadUtil;
@@ -43,8 +44,14 @@ public class CarController {
     @Autowired
     private FileUploadUtil uploadFile;
 
+
+    @GetMapping(path = "textGet",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity textGetCar(/*@RequestBody ImageDTO imageDTO*/){
+        return ResponseEntity.badRequest().contentType(MediaType.APPLICATION_JSON).body("Car Image not found");
+    }
+
     @PostMapping(path = "addCar",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil addCar(@RequestBody CarDTO carDTO ){
+    public ResponseUtil addCar(@RequestBody CarDTO carDTO){
         System.out.println(carDTO.toString());
 
         carService.addCar(carDTO);
@@ -88,7 +95,9 @@ public class CarController {
 
 
     @GetMapping(path = "getCarImage" , produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<?> getCarImage(@RequestBody ImageDTO imageDTO){
+    public ResponseEntity<?> getCarImage(@RequestParam String carId, String view){
+
+        ImageDTO imageDTO = new ImageDTO(carId, "car",view);
         Resource fileAsResource = downloadUtil.getFileAsResource(imageDTO);
 
         if (fileAsResource==null){
@@ -142,8 +151,6 @@ public class CarController {
     public ResponseUtil getAllCars(){
 
         List<CarDTO> allCars = carService.getAllCars();
-
-
 
         return new ResponseUtil(200,"Get All Cars",allCars);
 
