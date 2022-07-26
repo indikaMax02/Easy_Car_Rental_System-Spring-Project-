@@ -61,5 +61,61 @@ class CarService {
         })
         return await promise;
     }
+
+    updateCar = async (data) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.put('car/updateCar',data)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
+    updateCarImage =async (imgFile,carId,view) =>{
+        const promise = new Promise((resolve, reject) => {
+            axios.post('car/updateCarImage?carId='+carId+'&view='+view,imgFile)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
+    deleteCar =async (carId) =>{
+        const promise = new Promise((resolve, reject) => {
+            axios.delete('car/deleteCar?carId='+carId)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+    deleteCarImages =async (carId) =>{
+        const promise = new Promise((resolve, reject) => {
+            axios.delete('car/deleteCarImage?carId='+carId)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
 }
 export default new CarService();

@@ -20,7 +20,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.print.attribute.standard.Media;
 import javax.servlet.ServletContext;
+import javax.servlet.annotation.MultipartConfig;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -29,6 +31,7 @@ import java.util.List;
 @RestController
 @RequestMapping("car")
 @CrossOrigin
+@javax.servlet.annotation.MultipartConfig
 public class CarController {
 
     @Autowired
@@ -107,36 +110,37 @@ public class CarController {
     }
 
     @PutMapping(path = "updateCar", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil updateCar(CarDTO carDTO){
+    public ResponseUtil updateCar(@RequestBody CarDTO carDTO){
         carService.editCar(carDTO);
         return new ResponseUtil(200,"car Details Updated",null);
     }
 
 
+
     @SneakyThrows
-    @PutMapping(path = "updateCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "updateCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateCarImage(@RequestParam(value = "carImage") MultipartFile multipartFile , @RequestParam("carId") String carId ,@RequestParam("view") String view){
 
-        String pathDirectory="/home/indika/IJSE/Spring Project/milestone 02 backend/Easy_Rental_Car_System/EasyCarRental/src/main/resources/static/image/CarImage";
+        String pathDirectory="/home/indika/Spring Project/milestone 02 backend/Easy_Car_Rental_System-Spring-Project-/EasyCarRental/src/main/resources/static/image/CarImage";
 
         if (searchFile.searchFile(pathDirectory,carId+view+".jpeg")){
-            Files.copy(multipartFile.getInputStream(),Paths.get(pathDirectory+File.separator+carId+view+".jpeg"),StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(multipartFile.getInputStream(),Paths.get(pathDirectory+File.separator+carId+view+".jpeg"),StandardCopyOption.REPLACE_EXISTING);
             return new ResponseUtil(200,"car Image Updated",null);
         }
-        return new ResponseUtil(200,"car Image Update Fail",null);
+        return new ResponseUtil(500,"car Image Update Fail",null);
     }
 
 
     @DeleteMapping(path = "deleteCar",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil deleteCar(CarDTO carDTO){
-        carService.deleteCar(carDTO);
+    public ResponseUtil deleteCar(@RequestParam String carId){
+        carService.deleteCar(carId);
         return new ResponseUtil(200,"car Delete success",null);
     }
 
     @SneakyThrows
     @DeleteMapping(path = "deleteCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil deleteCarAllImages(@RequestParam String carId){
-        String pathDirectory="/home/indika/IJSE/Spring Project/milestone 02 backend/Easy_Rental_Car_System/EasyCarRental/src/main/resources/static/image/CarImage";
+        String pathDirectory="/home/indika/Spring Project/milestone 02 backend/Easy_Car_Rental_System-Spring-Project-/EasyCarRental/src/main/resources/static/image/CarImage";
         String [] carImageView={"Front","Back","Side","Interior"};
 
         for (int i=0; i<carImageView.length; i++){
@@ -149,6 +153,7 @@ public class CarController {
 
     @GetMapping(path ="getAllCars" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllCars(){
+
 
         List<CarDTO> allCars = carService.getAllCars();
 

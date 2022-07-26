@@ -8,6 +8,6 @@ import java.util.List;
 public interface CarService {
     public void addCar(CarDTO carDTO);
     public void editCar(CarDTO carDTO);
-    public void deleteCar(CarDTO carDTO);
+    public void deleteCar(String carId);
     public List<CarDTO> getAllCars();
 }

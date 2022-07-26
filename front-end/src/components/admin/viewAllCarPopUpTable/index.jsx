@@ -16,6 +16,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TablePagination from "@material-ui/core/TablePagination";
 import axios from "axios";
 import {element} from "prop-types";
+import {cleanup} from "@testing-library/react";
 
 
 
@@ -46,7 +47,7 @@ const useStyles = makeStyles({
     },
 });
 
-const rows = [
+let rows = [
 
 ];
 
@@ -56,13 +57,15 @@ export default function ViewAllCarPopUpTable(props) {
 
 
     const getAllCars=async () =>{
+          rows.length=0;
         let res = await carService.getAllCar();
+        if (res.data.code!=500){
 
-        if (res.data.code==200){
+
             //console.log(res.data.data[0].vehicleId);
             var i=0;
             for (let dataKey of res.data.data) {
-                rows[i]=createData(dataKey.vehicleId,dataKey.brand,dataKey.numOfPassenger,dataKey.transmissionType,dataKey.fuelType,dataKey.priceOfRentDurationDaily,dataKey.priceOfRentDurationMonthly,dataKey.freeMileageForPriceAndDuration,dataKey.priceOfExtraKm,dataKey.registerNumber,dataKey.color)
+                rows[i]=createData(dataKey.vehicleId,dataKey.brand,dataKey.numOfPassenger,dataKey.transmissionType,dataKey.fuelType,dataKey.registerNumber,dataKey.color,dataKey.priceOfRentDurationDaily,dataKey.priceOfRentDurationMonthly,dataKey.freeMileageForPriceAndDuration,dataKey.priceOfExtraKm)
                 i++;
             }
             setShow(true)

@@ -22,6 +22,7 @@ import axios from "../../../axios";
 
 
 
+
 class ManageCar extends Component{
 
 
@@ -86,7 +87,6 @@ class ManageCar extends Component{
 
 
     addCarImage=async (carId) =>{
-
         var bodyFormData = new FormData();
         bodyFormData.append('param', this.state.frontImage);
         bodyFormData.append('param', this.state.backImage);
@@ -95,7 +95,7 @@ class ManageCar extends Component{
 
          let res = await carService.addCarImage(bodyFormData,carId);
          if (res.data.code===200){alert(res.data.message)}else {
-             alert(res.data.message);
+             alert("CAR ADDED SUCCESS");
          }
 
     }
@@ -123,17 +123,113 @@ class ManageCar extends Component{
             color : this.state.carDetails.color,
             state : 'Parking'
         }
+           if (carDetails.vehicleId!='') {
+               let res = await carService.addCar(carDetails);
+               if (res.data.code == 200) {
+                   this.clearAllState();
+                   this.addCarImage(carDetails.vehicleId);
 
-        let res = await carService.addCar(carDetails);
-        if (res.data.code==200){
-            alert(res.data.message);
+               } else {
+                   alert(res.data.message);
+               }
+           }else {
 
-            this.addCarImage(carDetails.vehicleId);
+           }
 
-        }else {
-            alert(res.data.message);
+    }
+
+    updateCarImage=async (data,carId,view) =>{
+        let response =await carService.updateCarImage(data,carId,view);
+        if (response.data.code!=200){
+            alert("Car Image Update Fail")
+        }
+    }
+
+    updateCar=async () =>{
+        var carUpdateDetails = {
+            vehicleId : this.state.carDetails.vehicleId,
+            brand  : this.state.carDetails.vehicleType,
+            numOfPassenger : this.state.carDetails.numofP,
+            transmissionType : this.state.carDetails.transmissionType,
+            fuelType : this.state.carDetails.fuelType,
+            priceOfRentDurationDaily : this.state.carDetails.pricesForDaily ,
+            priceOfRentDurationMonthly : this.state.carDetails.pricesForMonthly,
+            freeMileageForPriceAndDuration : this.state.carDetails.freeMileage,
+            priceOfExtraKm : this.state.carDetails.priceForExtraKm,
+            registerNumber : this.state.carDetails.registerNum,
+            color : this.state.carDetails.color,
+            state : 'Parking'
         }
 
+           let res =await carService.updateCar(carUpdateDetails);
+           if (res.data.code===200){
+
+               let front=this.state.frontImage;
+               let back=this.state.backImage;
+               let side=this.state.sideImage;
+               let interior=this.state.interiorImage;
+               let list=[front,back,side,interior]
+               let viewList=["Front","Back","Side","Interior"]
+
+               for (var i=0; i<list.length; i++){
+                   if (list[i] != null){
+                       let formData = new FormData();
+                       formData.append('carImage',list[i]);
+                        await this.updateCarImage(formData, carUpdateDetails.vehicleId, viewList[i]);
+                   }
+               }
+               alert('Car Details Update SuccessFull..')
+               this.clearAllState();
+
+           }else {
+             alert("Car update Fail..")
+           }
+
+    }
+
+    deleteCar=async () =>{
+
+         let res =await carService.deleteCar(this.state.carDetails.vehicleId);
+         if (res.status==200){
+
+             let res =await carService.deleteCarImages(this.state.carDetails.vehicleId);
+              if (res.data.code==200){
+                  alert("Car Deleted Success")
+                  this.clearAllState()
+              }
+         }else {
+             alert("Car Delete Fail...")
+         }
+
+    }
+
+    clearAllState=() =>{
+        this.setState({
+            frontImage: null,
+            backImage : null,
+            sideImage : null,
+            interiorImage : null,
+
+            frontView : null,
+            backView : null,
+            sideView : null,
+            interiorView : null,
+
+            carDetails : {
+                vehicleId : '',
+                vehicleType : '',
+                numofP : '',
+                transmissionType : '',
+                fuelType :'',
+                registerNum : '',
+                color : '',
+                pricesForDaily : '',
+                pricesForMonthly : '',
+                freeMileage : '',
+                priceForExtraKm : '',
+            }
+
+        })
     }
 
     render(){
@@ -539,14 +635,17 @@ class ManageCar extends Component{
 
                                  <div className={classes.search_container}>
                                      <TextField
-                                         label="Search Here"
-                                         id="outlined-size-small"
+                                         className="inputRounded"
+                                         placeholder="Search"
                                          variant="outlined"
                                          size="small"
+                                         style={{borderRadius: 100}
 
-                                         style={{borderRadius : '20px',width: '70%'}}
+
+                                         }
                                      />
-                                     <Button variant="outlined" style={{color : 'green'}}>
+                                     <Button variant="outlined" style={{color : 'green'}}
+                                     >
                                          Search
                                      </Button>
                                  </div>
@@ -564,15 +663,16 @@ class ManageCar extends Component{
                                 </Button>
 
                                 <Button variant="outlined" style={{color : 'blue', width : '30%'}}
-
+                                               onClick={() =>{
+                                                   this.updateCar();
+                                               }}
                                 >
                                     Update
                                 </Button>
 
                                 <Button variant="outlined" style={{color : 'red' , width : '30%'}}
-                                       onClick={() =>{
-
-
+                                       onClick={async () =>{
+                                           await this.deleteCar()
                                        }}
                                 >
                                     Delete
@@ -584,7 +684,11 @@ class ManageCar extends Component{
 
                             <div className={classes.clearButtonContainer}>
                                 <ViewAllCarPopUpTable data={{changeStateCarDetails:this.changeStateCarDetails.bind(this)}}/>
-                                <Button variant="outlined" style={{color : 'back' , width : '95%'}}>
+                                <Button variant="outlined" style={{color : 'back' , width : '95%'}}
+                                   onClick={() =>{
+                                       this.clearAllState()
+                                   }}
+                                >
                                     Clear All
                                 </Button>
                             </div>

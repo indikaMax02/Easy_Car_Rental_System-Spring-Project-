@@ -46,11 +46,10 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void deleteCar(CarDTO carDTO) {
-        if (carRepo.existsById(carDTO.getVehicleId())){
+    public void deleteCar(String vehicleId) {
+        if (carRepo.existsById(vehicleId)){
 
-            carRepo.delete(mapper.map(carDTO,Car.class));
-
+            carRepo.deleteById(vehicleId);
         }else{
             throw new RuntimeException("Car not found...");
         }
@@ -59,13 +58,19 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<CarDTO> getAllCars() {
 
-        List<Car> all = carRepo.findAll();
-        List<CarDTO> allcars=new ArrayList<>();
-        for (Car car : all) {
-           allcars.add(mapper.map(car,CarDTO.class));
+        long count = carRepo.count();
+        if (count!=0){
+            List<Car> all = carRepo.findAll();
+            List<CarDTO> allcars=new ArrayList<>();
+            for (Car car : all) {
+                allcars.add(mapper.map(car,CarDTO.class));
+            }
+
+            return allcars;
+        }else {
+            throw new RuntimeException("Cars Empty...");
         }
 
-        return allcars;
 
     }
 
