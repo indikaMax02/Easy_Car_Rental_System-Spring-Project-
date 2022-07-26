@@ -79,13 +79,11 @@ export default function ViewAllCarPopUpTable(props) {
     const [frontImage,setFrontImage]=React.useState(null)
 
 
-    const loadCarDetails=async (carId,view, brand, numOfp, TransType, fuelType, regNum, color,priceDaily,priceMonthly,freeMileage,pOfExtraKm) =>{
+    const loadCarDetails=async (carId,brand, numOfp, TransType, fuelType, regNum, color,priceDaily,priceMonthly,freeMileage,pOfExtraKm) =>{
         let frontImage;
         let backImage;
         let sideImage;
         let interiorImage;
-
-
 
         let res1 = await carService.getCarImage(carId,"Front");
         if (res1.status===200) {
@@ -167,7 +165,7 @@ export default function ViewAllCarPopUpTable(props) {
                                             <TableRow hover role="checkbox" tabIndex={-1} key={row.code}
 
                                                      onClick={async () => {
-                                                         loadCarDetails(row.carId,"Back",row.carId, row.brand, row.numOfp, row.TransType, row.fuelType, row.regNum, row.color, row.priceDaily, row.priceMonthly, row.freeMileage, row.pOfExtraKm)
+                                                         await loadCarDetails(row.carId, row.brand, row.numOfp, row.TransType, row.fuelType, row.regNum, row.color, row.priceDaily, row.priceMonthly, row.freeMileage, row.pOfExtraKm)
                                                          setShow(false)
 
 

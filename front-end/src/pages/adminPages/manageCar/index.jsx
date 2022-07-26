@@ -53,12 +53,7 @@ class ManageCar extends Component{
                 pricesForMonthly : '',
                 freeMileage : '',
                 priceForExtraKm : '',
-                sm : ''
-            } ,
-
-
-
-
+            }
 
         }
     }
@@ -107,6 +102,13 @@ class ManageCar extends Component{
 
     addCar =async () =>{
 
+
+        console.log(this.state.carDetails.vehicleId);
+        console.log(this.state.carDetails.vehicleType);
+        console.log(this.state.carDetails.numofP);
+        console.log(this.state.carDetails.transmissionType);
+        console.log(this.state.carDetails.fuelType);
+
         var carDetails = {
             vehicleId : this.state.carDetails.vehicleId,
             brand  : this.state.carDetails.vehicleType,
@@ -132,14 +134,9 @@ class ManageCar extends Component{
             alert(res.data.message);
         }
 
-
     }
 
     render(){
-
-        const top100Films = [
-            { title: 'Auto'},
-            { title: "Manual"}];
 
         const {classes}=this.props;
 
@@ -173,29 +170,16 @@ class ManageCar extends Component{
 
                                 <TextValidator
                                 id="outlinedbasic"
+                                placeHolder="CarID"
                                 variant='outlined'
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
                                 label="CarId"
                                 size="small"
                                 style={{ width: '100%' }}
                                 value={this.state.carDetails.vehicleId}
                                 onChange={(e) => {
-
-
-
-                                    this.setState({
-                                        carDetails : {
-                                            vehicleId : e.target.value
-                                        }
-                                    })
-                                    this.getCarImage(this.state.carDetails.vehicleId,'Back')
-
-
-
-
-
+                                    let data = this.state.carDetails
+                                    data.vehicleId = e.target.value
+                                    this.setState({ data })
                                 }}
                                 validators={['variant']}
                                 />
@@ -203,18 +187,13 @@ class ManageCar extends Component{
                                 <TextValidator
                                     size={"small"}
                                     id="outlined-required"
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
                                     label="Brand"
                                     variant="outlined"
                                     value={this.state.carDetails.vehicleType}
                                     onChange={(e) => {
-                                        this.setState({
-                                            carDetails : {
-                                                vehicleType : e.target.value
-                                            }
-                                        })
+                                        let data = this.state.carDetails
+                                        data.vehicleType = e.target.value
+                                        this.setState({ data })
                                     }}
 
                                 />
@@ -222,19 +201,13 @@ class ManageCar extends Component{
                                 <TextValidator
                                     size={"small"}
                                     id="outlined-required"
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
                                     label="Num of Passengers"
                                     variant="outlined"
                                     value={this.state.carDetails.numofP}
                                     onChange={(e) => {
-                                        this.setState({
-                                            carDetails : {
-                                                numofP : e.target.value
-                                            }
-
-                                        })
+                                        let data = this.state.carDetails
+                                        data.numofP = e.target.value
+                                        this.setState({ data })
                                     }}
 
                                 />
@@ -242,41 +215,29 @@ class ManageCar extends Component{
                                 <TextValidator
                                     size={"small"}
                                     id="outlined-required"
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
                                     label="Auto or Mannual"
                                     variant="outlined"
                                     value={this.state.carDetails.transmissionType}
                                     style={{ width: 180 }}
                                     onChange={(e) => {
-                                        this.setState({
-                                            carDetails : {
-                                                transmissionType : e.target.value
-                                            }
-
-                                        })
+                                        let data = this.state.carDetails
+                                        data.transmissionType = e.target.value
+                                        this.setState({ data })
                                     }}
 
                                 />
 
                                 <TextValidator
                                     size={"small"}
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
                                     id="outlined-required"
                                     label="Petrol or Diesel"
                                     variant="outlined"
                                     value={this.state.carDetails.fuelType}
                                     style={{ width: 180 }}
                                     onChange={(e) => {
-                                        this.setState({
-                                            carDetails : {
-                                                fuelType : e.target.value
-                                            }
-
-                                        })
+                                        let data = this.state.carDetails
+                                        data.fuelType = e.target.value
+                                        this.setState({ data })
                                     }}
 
                                 />
@@ -284,20 +245,14 @@ class ManageCar extends Component{
                                 <TextValidator
                                     size={"small"}
                                     id="outlined-required"
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
                                     label="Registration Number"
                                     style={{ width: 180 }}
                                     variant="outlined"
                                     value={this.state.carDetails.registerNum}
                                     onChange={(e) => {
-                                        this.setState({
-                                            carDetails : {
-                                                registerNum : e.target.value
-                                            }
-
-                                        })
+                                        let data = this.state.carDetails
+                                        data.registerNum = e.target.value
+                                        this.setState({ data })
                                     }}
 
 
@@ -305,20 +260,14 @@ class ManageCar extends Component{
                                 <TextValidator
                                     size={"small"}
                                     id="outlined-required"
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
                                     label="Color"
                                     variant="outlined"
                                     value={this.state.carDetails.color}
                                     style={{ width: 180 }}
                                     onChange={(e) => {
-                                        this.setState({
-                                            carDetails : {
-                                                color : e.target.value
-                                            }
-
-                                        })
+                                        let data = this.state.carDetails
+                                        data.color = e.target.value
+                                        this.setState({ data })
                                     }}
 
                                 />
@@ -337,9 +286,6 @@ class ManageCar extends Component{
 
                                 <TextValidator
                                     style={{width :'17%'}}
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
                                     size={"small"}
                                     id="outlined-required"
 
@@ -348,12 +294,9 @@ class ManageCar extends Component{
                                     value={this.state.carDetails.pricesForDaily}
                                     style={{ width: 180 }}
                                     onChange={(e) => {
-                                        this.setState({
-                                            carDetails : {
-                                                pricesForDaily : e.target.value
-                                            }
-
-                                        })
+                                        let data = this.state.carDetails
+                                        data.pricesForDaily = e.target.value
+                                        this.setState({ data })
                                     }}
 
                                 />
@@ -361,41 +304,27 @@ class ManageCar extends Component{
                                 <TextValidator
                                     size={"small"}
                                     id="outlined-required"
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
                                     label="monthly"
                                     variant="outlined"
                                     value={this.state.carDetails.pricesForMonthly}
                                     style={{ width: 180 }}
                                     onChange={(e) => {
-                                        this.setState({
-                                            carDetails : {
-                                                pricesForMonthly : e.target.value
-                                            }
-
-                                        })
+                                        let data = this.state.carDetails
+                                        data.pricesForMonthly = e.target.value
+                                        this.setState({ data })
                                     }}/>
 
-                                <TextValidator freeMileage
-
+                                <TextValidator
                                     size={"small"}
-                                    id="outlined-required"
-                                               InputLabelProps={{
-                                                   shrink: true,
-                                               }}
                                     label="Km"
                                     variant="outlined"
                                      value={this.state.carDetails.freeMileage}
                                     style={{ width: 180 }}
-                                               onChange={(e) => {
-                                                   this.setState({
-                                                       carDetails : {
-                                                           freeMileage : e.target.value
-                                                       }
-
-                                                   })
-                                               }}
+                                    onChange={(e) => {
+                                        let data = this.state.carDetails
+                                        data.freeMileage = e.target.value
+                                        this.setState({ data })
+                                    }}
 
                                 />
 
@@ -403,20 +332,14 @@ class ManageCar extends Component{
 
                                     size={"small"}
                                     id="outlined-required"
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
                                     label="Rs/="
                                     variant="outlined"
                                     value={this.state.carDetails.priceForExtraKm}
                                     style={{ width: 180 }}
                                     onChange={(e) => {
-                                        this.setState({
-                                            carDetails : {
-                                                priceForExtraKm : e.target.value
-                                            }
-
-                                        })
+                                        let data = this.state.carDetails
+                                        data.priceForExtraKm = e.target.value
+                                        this.setState({ data })
                                     }}
 
                                 />
@@ -632,18 +555,16 @@ class ManageCar extends Component{
                             <div className={classes.button_container}>
 
                                 <Button variant="outlined" style={{color : 'green' , width : '30%'}}
-                                    onClick={() =>{this.addCar()}}
+                                    onClick={async () =>{
+                                        this.addCar()
+                                    }
+                                    }
                                 >
                                     Save
                                 </Button>
 
                                 <Button variant="outlined" style={{color : 'blue', width : '30%'}}
 
-                                        onClick={() =>{
-                                            this.setState({
-                                                unit : "madushanka"
-                                            })
-                                        }}
                                 >
                                     Update
                                 </Button>
