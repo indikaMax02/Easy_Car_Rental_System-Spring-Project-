@@ -16,90 +16,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f40b6a14-c7a3-40b5-b2c2-78391906da26" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/CarData/carData.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/001.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/1-rolls-royce-ghost-2021-road-test-review-hero-front_0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/2-mercedes-s-class-s400d-2021-uk-fd-hero-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/2020-toyta-camry-mmp-1-1566921359.max-784x410.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/2022_audi_a8_sedan_l_fq_oem_1_1600.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/344414-2020-bmw-7-series.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/3ACLASS-02_i.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/680.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/C-Class_Hero-Safe-Zones_2160x1095_ENG.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/bmw_750li_xdrive_19_0 (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/front-left-side-47.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/images.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/assets/DataImages/luxury-4x4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/components/customer/carItem/CarItem.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/customerPages/home/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/test/OldHome/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/pages/test/OldHome/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/components/customer/CarDetailsPopup/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/components/customer/CarDetailsPopup/style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/src/components/customer/modal/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/controller/CarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/dto/CarDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/dto/CarDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/embeded/PriceOfRentDuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/embeded/RentDurationAndFreeKm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/entity/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/repo/CustomerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/repo/CustomerRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/repo/CustomerUserAccountRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/repo/CustomerUserAccountRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/service/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/service/impl/CarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/service/impl/CustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/service/impl/RentalRequestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/service/impl/RentalRequestServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/util/FileDownloadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/spring/util/FileDownloadUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/image/LicenceImage/C001Licence_CARD.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/controller/CarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/controller/CarController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/controller/CustomerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/dto/CarDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/dto/CarDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/embeded/PriceOfRentDuration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/entity/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/entity/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/repo/CustomerRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/repo/CustomerRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/repo/CustomerUserAccountRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/repo/CustomerUserAccountRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/service/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/service/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/service/impl/CarServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/service/impl/CarServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/service/impl/CustomerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/service/impl/CustomerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/service/impl/RentalRequestServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/service/impl/RentalRequestServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/util/FileDownloadUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/lk/ijse/spring/util/FileDownloadUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/EasyCarRental-1.0.0/WEB-INF/classes/static/image/LicenceImage/C001Licence_CARD.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/controller/CarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/controller/CarController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/controller/CustomerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/dto/CarDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/dto/CarDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/embeded/PriceOfRentDuration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/entity/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/entity/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/repo/CustomerRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/repo/CustomerRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/repo/CustomerUserAccountRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/repo/CustomerUserAccountRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/service/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/service/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/service/impl/CarServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/service/impl/CarServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/service/impl/CustomerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/service/impl/CustomerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/service/impl/RentalRequestServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/service/impl/RentalRequestServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/spring/util/FileDownloadUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/spring/util/FileDownloadUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/image/LicenceImage/C001Licence_CARD.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/admin/viewAllCarPopUpTable/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/admin/viewAllCarPopUpTable/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/common/SnackBar/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/common/SnackBar/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/customer/AlertDialog/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/customer/AlertDialog/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/customer/login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/customer/login/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/customer/login/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/customer/login/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/customer/register/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/customer/register/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/customer/register/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/customer/register/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/pages/adminPages/manageCar/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/pages/adminPages/manageCar/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/components/customer/carItem/CarItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/customer/carItem/CarItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/src/pages/customerPages/home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/pages/customerPages/home/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/pages/customerPages/home/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/pages/customerPages/home/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/pages/customerPages/register/addCustomer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/pages/customerPages/register/addCustomer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/pages/customerPages/register/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/pages/customerPages/register/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/pages/customerPages/register/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/pages/customerPages/register/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/pages/text/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/TestReactExample/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/services/CarService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/services/CarService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/services/customerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/services/customerService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -347,7 +271,7 @@
       <workItem from="1659153968263" duration="36339000" />
       <workItem from="1659236521376" duration="48653000" />
       <workItem from="1659291420369" duration="2888000" />
-      <workItem from="1659330147074" duration="50015000" />
+      <workItem from="1659330147074" duration="57069000" />
     </task>
     <servers />
   </component>

@@ -24,6 +24,7 @@ import CarService from "../../../services/CarService";
 import FuntionCar from "../../../assets/CarData/carData";
 import CarDetails from "../../../assets/CarData/carData";
 import CarItem from "../../../components/customer/carItem/CarItem";
+import Reg from "../../../components/customer/register";
 
 
 const quickLinks = [
@@ -419,6 +420,7 @@ class NavBar extends Component {
                         <h2 className="section__title">Hot Offers</h2>
                     </Col>
                     <CarDetails/>
+
                 </Row>
             </Container>
 

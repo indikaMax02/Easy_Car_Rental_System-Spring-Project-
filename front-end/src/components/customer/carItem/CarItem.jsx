@@ -2,6 +2,12 @@ import React from "react";
 import "../../../pages/customerPages/home/style.css";
 import Col from "react-bootstrap/Col";
 import Link from "@material-ui/core/Link";
+import ReactButton from '@material-ui/core/Button';
+import CarDetails from "../../../assets/CarData/carData";
+import Reg from "../register";
+import CarDetailsPopUp from "../../customer/CarDetailsPopup"
+import Modal from "../modal";
+import CarDetailsModal from "../modal";
 
 const CarItem = (props) => {
     const { imgUrl, carType, carName, automatic, state , price } = props.item;
@@ -30,13 +36,16 @@ const CarItem = (props) => {
                         </span>
                     </div>
 
-                    <button className=" w-50 car__item-btn car__btn-rent">
-                        <Link to={`/cars/${carName}`}>Rent</Link>
-                    </button>
+                    <button className=" w-50 car__item-btn car__btn-rent" style={{color : 'white'}}
+                      onClick={() =>{
+                          this.child.handleShow();
+                      }}
+                    >
 
-                    <button className=" w-50 car__item-btn car__btn-details">
-                        <Link to={`/cars/${carName}`}>Details</Link>
+                       Rent Now..
+
                     </button>
+                    <CarDetailsPopUp ref={instance => { this.child = instance;}}/>
                 </div>
             </div>
         </Col>
