@@ -11,7 +11,10 @@ export const styleSheet={
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
+        border: '2px solid green',
+        borderRadius : '10px',
+       /* backgroundColor : 'blue',*/
+        justifyContent: 'space-evenly'
     },
 
     textFieldContainer : {
@@ -20,7 +23,7 @@ export const styleSheet={
         width : '80%',
         display : 'flex',
         flexDirection : 'column',
-     /*   backgroundColor: 'red',*/
+      /*  backgroundColor: 'red',*/
         alignItems : 'center',
         justifyContent : 'space-around'
     },
@@ -31,9 +34,14 @@ export const styleSheet={
     },
 
     userHeaderContainer : {
+        display : 'flex',
+        flexDirection : 'row',
+        alignItems : 'center',
         width : '100%',
-        height : '35%',
-        backgroundColor : '#4a67e8'
+        height : '20%',
+        borderRadius: '10px',
+        backgroundColor : '#4a67e8',
+        marginBottom : '20px'
     }
     ,
     textFieldContainerCustomerDetails: {
@@ -103,6 +111,12 @@ export const styleSheet={
         flexDirection : 'row',
         alignItems : 'center',
         justifyContent: 'space-around'
+    },
+    profilePic : {
+        marginLeft: '10px',
+        width : '60px',
+        height : '60px',
+        backgroundColor : 'white'
     }
 
 

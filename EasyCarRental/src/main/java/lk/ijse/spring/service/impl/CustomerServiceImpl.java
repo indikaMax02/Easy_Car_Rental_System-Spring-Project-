@@ -16,9 +16,11 @@ import lk.ijse.spring.service.CustomerService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -37,8 +39,55 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private ModelMapper mapper;
 
+    @Override
+    public void existUserCustomerAccount(String userName){
+        boolean b = customerUserAccountRepo.existsById(userName);
+        if (b==true){
+            throw new RuntimeException("UserAccount Already Exist");
+        }
+    }
 
+    @Override
+    public void existEmail(String email) {
+        String s = repo.existsByEmail(email);
+        if (s!=null){
+            throw new RuntimeException("Email Already Exist");
+        }
+    }
 
+    @Override
+    public String getNewId() {
+        String lastCustId = repo.getLastCustId();
+
+        String[] split = lastCustId.split("-");
+        long index = Long.parseLong(split[1]);
+
+         long incrementId=++index;
+
+        if (incrementId<10){
+            return "C-00"+incrementId ;
+        }else if (incrementId>=10 && index<100){
+            return "C-0"+ incrementId ;
+        }else if(incrementId>=100){
+            return "C-"+ incrementId ;
+        }
+        return "C-001";
+    }
+
+    @Override
+    public void checkUserAccount(String userName,String password) {
+        if (customerUserAccountRepo.existsById(userName)){
+            String pass = customerUserAccountRepo.getPassWordByUserName(userName);
+           if (!pass.equals(password)){
+               throw new RuntimeException("Password Incorrect");
+           }
+        }else {
+            throw new RuntimeException("userName Incorrect");
+        }
+
+    }
+
+    @Transactional
     @Override
     public void saveCustomer(RegisterCustomerDTO registerCustomerDTO){
         if(!repo.existsById(registerCustomerDTO.getId())) {
@@ -46,13 +95,14 @@ public class CustomerServiceImpl implements CustomerService {
             repo.save(mapper.map(registerCustomerDTO,Customer.class));
 
          if (!customerUserAccountRepo.existsById(registerCustomerDTO.getUsername())) {
-
              customerUserAccountRepo.save(mapper.map(registerCustomerDTO,CustomerUserAccount.class));
+
          }else {
              throw new RuntimeException("UserAccount Already Exist");
          }
         }else {
             throw new RuntimeException("Customer Already Exist");
+
         }
     }
 

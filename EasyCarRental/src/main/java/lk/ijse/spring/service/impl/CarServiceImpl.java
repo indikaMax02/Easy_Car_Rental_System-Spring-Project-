@@ -38,6 +38,9 @@ public class CarServiceImpl implements CarService {
     public void editCar(CarDTO carDTO) {
         if (carRepo.existsById(carDTO.getVehicleId())){
 
+
+
+
             carRepo.save(mapper.map(carDTO,Car.class));
 
         }else{
@@ -48,7 +51,6 @@ public class CarServiceImpl implements CarService {
     @Override
     public void deleteCar(String vehicleId) {
         if (carRepo.existsById(vehicleId)){
-
             carRepo.deleteById(vehicleId);
         }else{
             throw new RuntimeException("Car not found...");

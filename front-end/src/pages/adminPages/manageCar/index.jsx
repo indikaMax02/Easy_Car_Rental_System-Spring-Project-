@@ -45,6 +45,7 @@ class ManageCar extends Component{
             carDetails : {
                 vehicleId : '',
                 vehicleType : '',
+                vehicleBrand : '',
                 numofP : '',
                 transmissionType : '',
                 fuelType :'',
@@ -52,18 +53,20 @@ class ManageCar extends Component{
                 color : '',
                 pricesForDaily : '',
                 pricesForMonthly : '',
-                freeMileage : '',
+                freeKmDaily : '',
+                freeKmMonthly : '',
                 priceForExtraKm : '',
             }
 
         }
     }
 
-    changeStateCarDetails(vehicleId,vehicleType,numofP,transmissionType,fuelType,registerNum,color,pricesForDaily,pricesForMonthly,freeMileage,priceForExtraKm,frontImage,backImage,sideImage,interiorImage){
+    changeStateCarDetails(vehicleId,vehicleBrand,vehicleType,numofP,transmissionType,fuelType,registerNum,color,pricesForDaily,pricesForMonthly,freeKmDaily,freeKmMonthly,priceForExtraKm,frontImage,backImage,sideImage,interiorImage){
         this.setState({
             carDetails : {
                 vehicleId : vehicleId,
                 vehicleType : vehicleType,
+                vehicleBrand : vehicleBrand,
                 numofP : numofP,
                 transmissionType : transmissionType,
                 fuelType :fuelType,
@@ -71,7 +74,8 @@ class ManageCar extends Component{
                 color : color,
                 pricesForDaily : pricesForDaily,
                 pricesForMonthly : pricesForMonthly,
-                freeMileage : freeMileage,
+                freeKmDaily : freeKmDaily,
+                freeKmMonthly : freeKmMonthly,
                 priceForExtraKm : priceForExtraKm,
             },
             frontView : frontImage,
@@ -111,13 +115,15 @@ class ManageCar extends Component{
 
         var carDetails = {
             vehicleId : this.state.carDetails.vehicleId,
-            brand  : this.state.carDetails.vehicleType,
+            vehicleType : this.state.carDetails.vehicleType,
+            brand  : this.state.carDetails.vehicleBrand,
             numOfPassenger : this.state.carDetails.numofP,
             transmissionType : this.state.carDetails.transmissionType,
             fuelType : this.state.carDetails.fuelType,
-            priceOfRentDurationDaily : this.state.carDetails.pricesForDaily ,
-            priceOfRentDurationMonthly : this.state.carDetails.pricesForMonthly,
-            freeMileageForPriceAndDuration : this.state.carDetails.freeMileage,
+            dailyPrice : this.state.carDetails.pricesForDaily ,
+            monthlyPrice : this.state.carDetails.pricesForMonthly,
+            dailyFreeKm : this.state.carDetails.freeKmDaily,
+            monthlyFreeKm : this.state.carDetails.freeKmMonthly,
             priceOfExtraKm : this.state.carDetails.priceForExtraKm,
             registerNumber : this.state.carDetails.registerNum,
             color : this.state.carDetails.color,
@@ -148,13 +154,15 @@ class ManageCar extends Component{
     updateCar=async () =>{
         var carUpdateDetails = {
             vehicleId : this.state.carDetails.vehicleId,
-            brand  : this.state.carDetails.vehicleType,
+            vehicleType : this.state.carDetails.vehicleType,
+            brand  : this.state.carDetails.vehicleBrand,
             numOfPassenger : this.state.carDetails.numofP,
             transmissionType : this.state.carDetails.transmissionType,
             fuelType : this.state.carDetails.fuelType,
-            priceOfRentDurationDaily : this.state.carDetails.pricesForDaily ,
-            priceOfRentDurationMonthly : this.state.carDetails.pricesForMonthly,
-            freeMileageForPriceAndDuration : this.state.carDetails.freeMileage,
+            dailyPrice : this.state.carDetails.pricesForDaily ,
+            monthlyPrice : this.state.carDetails.pricesForMonthly,
+            dailyFreeKm : this.state.carDetails.freeKmDaily,
+            monthlyFreeKm : this.state.carDetails.freeKmMonthly,
             priceOfExtraKm : this.state.carDetails.priceForExtraKm,
             registerNumber : this.state.carDetails.registerNum,
             color : this.state.carDetails.color,
@@ -218,6 +226,7 @@ class ManageCar extends Component{
             carDetails : {
                 vehicleId : '',
                 vehicleType : '',
+                vehicleBrand : '',
                 numofP : '',
                 transmissionType : '',
                 fuelType :'',
@@ -225,7 +234,8 @@ class ManageCar extends Component{
                 color : '',
                 pricesForDaily : '',
                 pricesForMonthly : '',
-                freeMileage : '',
+                freeKmDaily : '',
+                freeKmMonthly : '',
                 priceForExtraKm : '',
             }
 
@@ -283,7 +293,7 @@ class ManageCar extends Component{
                                 <TextValidator
                                     size={"small"}
                                     id="outlined-required"
-                                    label="Brand"
+                                    label="type"
                                     variant="outlined"
                                     value={this.state.carDetails.vehicleType}
                                     onChange={(e) => {
@@ -293,6 +303,23 @@ class ManageCar extends Component{
                                     }}
 
                                 />
+
+                                <TextValidator
+                                    size={"small"}
+                                    id="outlined-required"
+                                    label="Brand"
+                                    variant="outlined"
+                                    value={this.state.carDetails.vehicleBrand}
+                                    onChange={(e) => {
+                                        let data = this.state.carDetails
+                                        data.vehicleBrand = e.target.value
+                                        this.setState({ data })
+                                    }}
+
+                                />
+
+
+
 
                                 <TextValidator
                                     size={"small"}
@@ -412,13 +439,26 @@ class ManageCar extends Component{
 
                                 <TextValidator
                                     size={"small"}
-                                    label="Km"
+                                    label="freeDaily Km"
                                     variant="outlined"
-                                     value={this.state.carDetails.freeMileage}
+                                     value={this.state.carDetails.freeKmDaily}
                                     style={{ width: 180 }}
                                     onChange={(e) => {
                                         let data = this.state.carDetails
-                                        data.freeMileage = e.target.value
+                                        data.freeKmDaily = e.target.value
+                                        this.setState({ data })
+                                    }}
+
+                                />
+                                <TextValidator
+                                    size={"small"}
+                                    label="freeMonthly Km"
+                                    variant="outlined"
+                                    value={this.state.carDetails.freeKmMonthly}
+                                    style={{ width: 180 }}
+                                    onChange={(e) => {
+                                        let data = this.state.carDetails
+                                        data.freeKmMonthly = e.target.value
                                         this.setState({ data })
                                     }}
 

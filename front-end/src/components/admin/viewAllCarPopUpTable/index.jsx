@@ -22,6 +22,7 @@ import {cleanup} from "@testing-library/react";
 
 const columns = [
     { id: 'carId', label: "CarId", minWidth: 170 },
+    { id: 'vehicleType', label: "VehicleType", minWidth: 170 },
     { id: 'brand', label: "Brand", minWidth: 100 },
     {id: 'numOfp', label: 'Number Of Passenger', minWidth: 170, align: 'right'},
     {id: 'TransType', label: "Transmission Type", minWidth: 170, align: 'right'},
@@ -30,12 +31,13 @@ const columns = [
     {id: 'color', label: 'Color', minWidth: 170, align: 'right'},
     {id: 'priceDaily', label: 'Prices for the rent Daily', minWidth: 170, align: 'right'},
     {id: 'priceMonthly', label: 'Prices for the rent monthly', minWidth: 170, align: 'right'},
-    {id: 'freeMileage', label: 'Free mileage', minWidth: 170, align: 'right'},
+    {id: 'dailyFreeKm', label: 'daily Free Km', minWidth: 170, align: 'right'},
+    {id: 'monthlyFreeKm', label: 'monthly Free Km', minWidth: 170, align: 'right'},
     {id: 'pOfExtraKm', label: 'Price for extra KM', minWidth: 170, align: 'right'},
 ];
 
-function createData(carId, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,freeMileage,pOfExtraKm) {
-    return { carId, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,freeMileage,pOfExtraKm };
+function createData(carId,vehicleType, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,dailyFreeKm,monthlyFreeKm,pOfExtraKm) {
+    return { carId,vehicleType, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,dailyFreeKm,monthlyFreeKm,pOfExtraKm };
 }
 
 const useStyles = makeStyles({
@@ -57,19 +59,23 @@ export default function ViewAllCarPopUpTable(props) {
 
 
     const getAllCars=async () =>{
+
           rows.length=0;
         let res = await carService.getAllCar();
-        if (res.data.code!=500){
 
+        if (res.code==undefined){
 
             //console.log(res.data.data[0].vehicleId);
             var i=0;
             for (let dataKey of res.data.data) {
-                rows[i]=createData(dataKey.vehicleId,dataKey.brand,dataKey.numOfPassenger,dataKey.transmissionType,dataKey.fuelType,dataKey.registerNumber,dataKey.color,dataKey.priceOfRentDurationDaily,dataKey.priceOfRentDurationMonthly,dataKey.freeMileageForPriceAndDuration,dataKey.priceOfExtraKm)
+                rows[i]=createData(dataKey.vehicleId,dataKey.vehicleType,dataKey.brand,dataKey.numOfPassenger,dataKey.transmissionType,dataKey.fuelType,dataKey.registerNumber,dataKey.color,dataKey.dailyPrice,dataKey.monthlyPrice,dataKey.dailyFreeKm,dataKey.monthlyFreeKm,dataKey.priceOfExtraKm)
                 i++;
             }
             setShow(true)
+        }else {
+            alert("Car Not Found")
         }
+
 
     }
 
@@ -79,7 +85,6 @@ export default function ViewAllCarPopUpTable(props) {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    const [frontImage,setFrontImage]=React.useState(null)
 
 
     const loadCarDetails=async (carId,brand, numOfp, TransType, fuelType, regNum, color,priceDaily,priceMonthly,freeMileage,pOfExtraKm) =>{

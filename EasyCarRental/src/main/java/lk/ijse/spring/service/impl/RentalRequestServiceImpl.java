@@ -23,7 +23,7 @@ public class RentalRequestServiceImpl implements RentalRequestService {
 
     @Override
     public void rentalRequest(RentalRequestDTO rentalRequestDTO) {
-        if (!rentalRequestRepo.existsById(rentalRequestDTO.getRequestId())){
+     /*   if (!rentalRequestRepo.existsById(rentalRequestDTO.getRequestId())){
 
             Customer customer = repo.getCustomerById(rentalRequestDTO.getCustomerId());
             Car car = carRepo.getCarById(rentalRequestDTO.getVehicleId());
@@ -39,6 +39,6 @@ public class RentalRequestServiceImpl implements RentalRequestService {
             rentalRequestRepo.save(rentalRequest);
         }else {
             throw new RuntimeException("Rental request Fail");
-        }
+        }*/
     }
 }

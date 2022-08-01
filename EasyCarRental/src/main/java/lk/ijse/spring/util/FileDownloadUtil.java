@@ -40,16 +40,16 @@ public class FileDownloadUtil {
 
         switch (imageDTO.getImageType()){
 
-            case "car" :  pathDirectory = "/home/indika/Spring Project/milestone 02 backend/Easy_Car_Rental_System-Spring-Project-/EasyCarRental/src/main/resources/static/image/CarImage";
+            case "car" :  pathDirectory = "D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\CarImage";
                 path= Paths.get(pathDirectory);
                 String imageName=imageDTO.getImageId()+imageDTO.getImageView()+".jpeg";
                 searchFile(path,imageName);
                 break;
 
-            case "licence" : pathDirectory = "/home/indika/IJSE/Spring Project/milestone 02 backend/Easy_Rental_Car_System/EasyCarRental/src/main/resources/static/image/LicenceImage";
+            case "licence" : pathDirectory = "D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\LicenceImage";
                 path= Paths.get(pathDirectory+"/" + imageDTO.getImageId() + imageDTO.getImageType() + ".jpeg");break;
 
-            case "idCard" :   pathDirectory = "/home/indika/IJSE/Spring Project/milestone 02 backend/Easy_Rental_Car_System/EasyCarRental/src/main/resources/static/image/IDCardImage";
+            case "idCard" :   pathDirectory = "D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\NICImage";
                 path= Paths.get(pathDirectory+"/" + imageDTO.getImageId() + imageDTO.getImageType() + ".jpeg");break;
 
         }

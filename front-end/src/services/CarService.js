@@ -2,6 +2,8 @@ import axios from "../axios";
 
 class CarService {
 
+
+
     getAllCar = async () => {
         const promise = new Promise((resolve, reject) => {
             axios.get('car/getAllCars')

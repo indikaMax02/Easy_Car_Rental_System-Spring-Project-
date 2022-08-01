@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { Snackbar } from "@mui/material";
 import Alert from '@mui/material/Alert';
@@ -31,9 +31,7 @@ class GDSESnackBar extends Component {
     handleButtonClose = (event) => {
         const { onClose } = this.props
         onClose &&
-            onClose({
-                event,
-            })
+        onClose({event},this.setState({ open : false}))
     }
 
     renderChildren = (message, children) => {
@@ -60,7 +58,7 @@ class GDSESnackBar extends Component {
                 className={className}
                 anchorOrigin={anchorOrigin}
                 autoHideDuration={autoHideDuration}
-                onClose={this.handleButtonClose}
+                onClose={() =>{alert("ok")}}
             >
                 <Alert variant={variant} severity={severity} onClose={this.handleButtonClose}>
                     {this.renderChildren(message, children)}

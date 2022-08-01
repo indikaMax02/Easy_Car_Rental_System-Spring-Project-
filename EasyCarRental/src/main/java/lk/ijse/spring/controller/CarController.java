@@ -73,7 +73,7 @@ public class CarController {
     @PostMapping(path = "addCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil addCarImage(@RequestParam(value = "param") MultipartFile[] multipartFile , @RequestParam("carId") String carId){
 
-        String pathDirectory="/home/indika/Spring Project/milestone 02 backend/Easy_Car_Rental_System-Spring-Project-/EasyCarRental/src/main/resources/static/image/CarImage/";
+        String pathDirectory="D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\CarImage\\";
 
         String [] carImageView={"Front","Back","Side","Interior"};
 
@@ -97,9 +97,10 @@ public class CarController {
 
 
 
-    @GetMapping(path = "getCarImage" , produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<?> getCarImage(@RequestParam String carId, String view){
 
+    @GetMapping(path = "getCarImage" , produces = MediaType.IMAGE_JPEG_VALUE)
+    public ResponseEntity<?> getCarImage(@RequestParam String carId, @RequestParam String view){
+        System.out.println(carId+" "+view);
         ImageDTO imageDTO = new ImageDTO(carId, "car",view);
         Resource fileAsResource = downloadUtil.getFileAsResource(imageDTO);
 
@@ -121,7 +122,7 @@ public class CarController {
     @PostMapping(path = "updateCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateCarImage(@RequestParam(value = "carImage") MultipartFile multipartFile , @RequestParam("carId") String carId ,@RequestParam("view") String view){
 
-        String pathDirectory="/home/indika/Spring Project/milestone 02 backend/Easy_Car_Rental_System-Spring-Project-/EasyCarRental/src/main/resources/static/image/CarImage";
+        String pathDirectory="D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\CarImage";
 
         if (searchFile.searchFile(pathDirectory,carId+view+".jpeg")){
                 Files.copy(multipartFile.getInputStream(),Paths.get(pathDirectory+File.separator+carId+view+".jpeg"),StandardCopyOption.REPLACE_EXISTING);
@@ -140,7 +141,7 @@ public class CarController {
     @SneakyThrows
     @DeleteMapping(path = "deleteCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil deleteCarAllImages(@RequestParam String carId){
-        String pathDirectory="/home/indika/Spring Project/milestone 02 backend/Easy_Car_Rental_System-Spring-Project-/EasyCarRental/src/main/resources/static/image/CarImage";
+        String pathDirectory="D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\CarImage";
         String [] carImageView={"Front","Back","Side","Interior"};
 
         for (int i=0; i<carImageView.length; i++){
@@ -154,9 +155,8 @@ public class CarController {
     @GetMapping(path ="getAllCars" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllCars(){
 
-
         List<CarDTO> allCars = carService.getAllCars();
-
+        System.out.println(allCars.toString());
         return new ResponseUtil(200,"Get All Cars",allCars);
 
     }

@@ -1,8 +1,11 @@
 
 
-
 import React from "react";
+import NewHome from "../pages/customerPages/home";
 import ManageCar from "../pages/adminPages/manageCar";
+import TestApp from "../TestReactExample";
+
+
 
 
 
@@ -10,7 +13,7 @@ import ManageCar from "../pages/adminPages/manageCar";
 
 function App() {
   return (
-       <ManageCar/>
+       <NewHome/>
   );
 }
 

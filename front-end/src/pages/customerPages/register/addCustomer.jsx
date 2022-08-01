@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from "react";
 import {withStyles} from "@material-ui/core";
-import {styleSheet} from "../customerAdd/style";
+import {styleSheet} from "./temp";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
@@ -16,44 +16,56 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import CarService from "../../../services/CarService";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 
 class AddCustomer extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            frontImage: null,
-            backImage: null,
+            IDFrontImage: null,
+            IDBackImage: null,
 
-            frontView: null,
-            backView: null,
+            IDFrontView: null,
+            IDBackView: null,
 
 
-            customerDerails :{
-                custId:'',
-                email:'',
-                userName:'',
-                address:'',
-                contactNum:''
-            }
+            customerDerails: {
+                id: '',
+                email: '',
+                nic: '',
+                drivingLicence: '',
+                address: '',
+                contactNum: '',
+                userName: '',
+                password: '',
+            },
+
+            TextLabel: 'DRIVING LICENCE OR NIC NUMBER'
+
         }
     }
-    addCustomer =async () =>{
 
-        var customerDetails={
-            custId:this.state.customerDerails.custId,
-            email:this.state.customerDerails.email,
-            userName:this.state.customerDerails.userName,
-            address:this.state.customerDerails.address,
-            contactNum:this.state.customerDerails.contactNum,
+    registerCustomer = async () => {
+
+        var customerDetails = {
+            id: this.state.customerDerails.id,
+            email: this.state.customerDerails.email,
+            nic: this.state.customerDerails.nic,
+            drivingLicence: this.state.customerDerails.drivingLicence,
+            address: this.state.customerDerails.address,
+            contactNumber: this.state.customerDerails.contactNum,
+            username: this.state.customerDerails.userName,
+            password: this.state.customerDerails.password,
         }
 
-        let res = await CustomerService.addCustomer(customerDetails);
-        if (res.data.code==200) {
-            alert(res.data.message);
 
-        }else {
-        alert(res.data.message);
+        let res = await CustomerService.registerCustomer(customerDetails);
+
+        if (res.code != 'ERR_BAD_REQUEST') {
+            alert(res.data.message);
+        } else {
+            alert(res.response.data.message);
         }
     }
 
@@ -76,6 +88,7 @@ class AddCustomer extends Component {
                                     fontFamily: 'sans-serif',
                                 }}> Customer Manage Form
                                 </display4>
+
                                 <display4 style={{
                                     width: '0',
                                     height: '0',
@@ -144,61 +157,98 @@ class AddCustomer extends Component {
                             </Grid>
 
                             <Grid item> <TextField id="outlined-basic" label="Customer Id" variant="outlined"
-                                                   InputLabelProps={{
-                                                       shrink: true,
-                                                   }}
-                                                   value={this.state.customerDerails.custId}
+
+                                                   value={this.state.customerDerails.id}
                                                    onChange={(e) => {
                                                        let data = this.state.customerDerails
-                                                       data.custId = e.target.value
-                                                       this.setState({ data })
+                                                       data.id = e.target.value
+                                                       this.setState({data})
                                                    }}
 
                             /></Grid>
                             <Grid item> <TextField id="outlined-basic" label="Email" variant="outlined"
-                                                   InputLabelProps={{
-                                                       shrink: true,
-                                                   }}
+
                                                    value={this.state.customerDerails.email}
                                                    onChange={(e) => {
                                                        let data = this.state.customerDerails
                                                        data.email = e.target.value
-                                                       this.setState({ data })
+                                                       this.setState({data})
                                                    }}
                             /></Grid>
 
                             <Grid item> <TextField id="outlined-basic" label="UserName" variant="outlined"
-                                                   InputLabelProps={{
-                                                       shrink: true,
-                                                   }}
+
                                                    value={this.state.customerDerails.userName}
                                                    onChange={(e) => {
                                                        let data = this.state.customerDerails
                                                        data.userName = e.target.value
-                                                       this.setState({ data })
+                                                       this.setState({data})
                                                    }}
 
                             /></Grid>
                             <Grid item> <TextField id="outlined-basic" label="New Password" variant="outlined"
-                                                   InputLabelProps={{
-                                                       shrink: true,
+
+                                                   value={this.state.customerDerails.password}
+                                                   onChange={(e) => {
+                                                       let data = this.state.customerDerails
+                                                       data.password = e.target.value
+                                                       this.setState({data})
                                                    }}
+                            /></Grid>
+                            <Grid item> <TextField id="outlined-basic" label="Address" variant="outlined"
+
                                                    value={this.state.customerDerails.address}
                                                    onChange={(e) => {
                                                        let data = this.state.customerDerails
                                                        data.address = e.target.value
-                                                       this.setState({ data })
+                                                       this.setState({data})
                                                    }}
                             /></Grid>
-                            <Grid item> <TextField id="outlined-basic" label="Address" variant="outlined"
-                                                   InputLabelProps={{
-                                                       shrink: true,
-                                                   }}
+                            <Grid item> <TextField id="outlined-basic" label="Contact" variant="outlined"
+
                                                    value={this.state.customerDerails.contactNum}
                                                    onChange={(e) => {
                                                        let data = this.state.customerDerails
                                                        data.contactNum = e.target.value
-                                                       this.setState({ data })
+                                                       this.setState({data})
+                                                   }}
+                            /></Grid>
+
+                            <Grid item> <Autocomplete
+                                id="combo-box-demo"
+                                options={[{title: 'Driving Licence'}, {title: 'NIC Number'}]}
+                                getOptionLabel={(option) => option.title}
+                                style={{width: 300}}
+                                renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined"/>}
+                                onChange={(event, value) => {
+                                    switch (value.title) {
+                                        case "NIC Number" :
+                                            let data1 = this.state.customerDerails.drivingLicence='';
+                                            this.setState({data1, TextLabel: "NIC NUMBER",});break;
+
+                                        case  "Driving Licence" :
+                                            let data2 = this.state.customerDerails.nic='';
+                                            this.setState({data2, TextLabel: "Driving Licence",});break;
+                                    }
+                                }}
+
+                            /></Grid>
+
+                            <Grid item> <TextField id="outlined-basic"
+                                                   label={this.state.TextLabel}
+                                                   variant="outlined"
+                                                   onChange={(e) => {
+                                                       switch (this.state.TextLabel) {
+                                                           case "NIC NUMBER" :
+                                                               let data1 = this.state.customerDerails
+                                                               data1.nic = e.target.value
+                                                               this.setState({data1});break;
+
+                                                           case  "Driving Licence" :
+                                                               let data2 = this.state.customerDerails
+                                                               data2.drivingLicence = e.target.value
+                                                               this.setState({data2});break;
+                                                       }
                                                    }}
                             /></Grid>
 
@@ -209,21 +259,29 @@ class AddCustomer extends Component {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     height: '75%',
-                                    backgroundImage: "url(" + this.state.front + ")",
+                                    width: '30%',
+                                    backgroundImage: "url(" + this.state.IDFrontView + ")",
                                     backgroundSize: 'cover'
-                                }}></div>
+                                }}>
+
+                                </div>
+
                                 <div className={classes.imageDiv} style={{
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     height: '75%',
-                                    backgroundImage: "url(" + this.state.backImage + ")",
+                                    width: '30%',
+                                    backgroundImage: "url(" + this.state.IDBackView + ")",
                                     backgroundSize: 'cover'
-                                }}></div>
+                                }}>
+
+                                </div>
 
                             </Grid>
 
                             <Grid item className={classes.uploadImageButton}>
+
                                 <div><input
 
                                     style={{display: 'none'}}
@@ -234,7 +292,8 @@ class AddCustomer extends Component {
                                     type="file"
                                     onChange={(e) => {
                                         this.setState({
-                                            front: URL.createObjectURL(e.target.files[0])
+                                            IDFrontView: URL.createObjectURL(e.target.files[0]),
+                                            IDFrontImage : e.target.files[0]
                                         })
                                     }}
                                 />
@@ -243,11 +302,9 @@ class AddCustomer extends Component {
                                             Upload
                                         </Button>
                                     </label>
-
                                 </div>
 
                                 <div><input
-
                                     style={{display: 'none'}}
                                     accept="image/*"
                                     className={classes.input}
@@ -256,7 +313,9 @@ class AddCustomer extends Component {
                                     type="file"
                                     onChange={(e) => {
                                         this.setState({
-                                            backImage: URL.createObjectURL(e.target.files[0])
+                                            IDBackView : URL.createObjectURL(e.target.files[0]),
+                                            IDBackImage : e.target.files[0]
+
                                         })
                                     }}
                                 />
@@ -287,11 +346,11 @@ class AddCustomer extends Component {
                                     boxShadow: '1px 1px 5px 0.2px',
 
                                 }}
-                                onClick={async () => {
-                                this.addCustomer();
+                                        onClick={async () => {
+                                            await this.registerCustomer();
 
-                            }}
-                                >Add</Button></Grid>
+                                        }}
+                                >Register</Button></Grid>
 
                             <Grid item> <TextField id="outlined-basic" label="Search Id" variant="outlined"/></Grid>
 
@@ -381,4 +440,5 @@ class AddCustomer extends Component {
 
 }
 
-export default withStyles(styleSheet)(AddCustomer)
+/*
+export default withStyles(styleSheet)(RegisterCustomer)*/
