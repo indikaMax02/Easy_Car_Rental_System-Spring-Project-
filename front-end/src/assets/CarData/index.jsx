@@ -9,11 +9,14 @@ const carData=[];
 function CarDetails(){
     const [loading,setLoading]=useState(false)
     const loadData= async () => {
+        carData.length=0;
         let response = await CarService.getAllCar();
-        if (response.status === 200) {
+        if (response.status == 200) {
+            carData.length=0
             for (const car of response.data.data) {
                 let resPhoto = await CarService.getCarImage("Car001", "Front");
                 carData.push({
+                    carId : car.vehicleId,
                     imgUrl: URL.createObjectURL(resPhoto.data),
                     carType : car.vehicleType,
                     carName : car.brand,
@@ -35,7 +38,7 @@ function CarDetails(){
                     loading ?
                         <ClipLoader color={'blue'} loading={loading}  size={150} />
                         :
-                        carData.slice().map((item) => (
+                        carData.slice(0,30).map((item) => (
                             <CarItem item={item}/>
                             ))
                 }
