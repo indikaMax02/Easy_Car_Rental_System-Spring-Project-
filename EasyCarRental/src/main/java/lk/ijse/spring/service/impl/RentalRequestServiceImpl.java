@@ -9,7 +9,9 @@ import lk.ijse.spring.repo.CustomerRepo;
 import lk.ijse.spring.repo.RentalRequestRepo;
 import lk.ijse.spring.service.RentalRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RentalRequestServiceImpl implements RentalRequestService {
 
     @Autowired
@@ -23,22 +25,21 @@ public class RentalRequestServiceImpl implements RentalRequestService {
 
     @Override
     public void rentalRequest(RentalRequestDTO rentalRequestDTO) {
-     /*   if (!rentalRequestRepo.existsById(rentalRequestDTO.getRequestId())){
+
 
             Customer customer = repo.getCustomerById(rentalRequestDTO.getCustomerId());
             Car car = carRepo.getCarById(rentalRequestDTO.getVehicleId());
 
             RentalRequest rentalRequest = new RentalRequest();
-            rentalRequest.setRequestId(rentalRequestDTO.getRequestId());
+
             rentalRequest.setCustomer(customer);
             rentalRequest.setCar(car);
             rentalRequest.setPickupDateAndTime(rentalRequestDTO.getPickupDateAndTime());
-            rentalRequest.setDamagePaySlip(rentalRequestDTO.getDamagePaySlip());
-            rentalRequest.setRentPayment(rentalRequestDTO.getRentPayment());
+            rentalRequest.setReturnDateAndTime(rentalRequestDTO.getReturnDateAndTime());
+            rentalRequest.setRentPayment("00");
+            rentalRequest.setDamagePaySlip(rentalRequestDTO.getDamageSlip());
             rentalRequest.setState("pending");
             rentalRequestRepo.save(rentalRequest);
-        }else {
-            throw new RuntimeException("Rental request Fail");
-        }*/
+
     }
 }

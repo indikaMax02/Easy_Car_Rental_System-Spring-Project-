@@ -37,24 +37,27 @@ public class FileDownloadUtil {
 
         String pathDirectory = null;
         Path path =null;
+        String imageName=imageDTO.getImageId()+imageDTO.getImageView()+".jpeg";
 
         switch (imageDTO.getImageType()){
 
             case "car" :  pathDirectory = "D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\CarImage";
                 path= Paths.get(pathDirectory);
-                String imageName=imageDTO.getImageId()+imageDTO.getImageView()+".jpeg";
                 searchFile(path,imageName);
                 break;
 
-            case "licence" : pathDirectory = "D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\LicenceImage";
-                path= Paths.get(pathDirectory+"/" + imageDTO.getImageId() + imageDTO.getImageType() + ".jpeg");break;
+            case "driverLicence" : pathDirectory = "D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\driversLicenceImage";
+                path= Paths.get(pathDirectory);
+                searchFile(path,imageName);
+                break;
 
             case "idCard" :   pathDirectory = "D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\NICImage";
-                path= Paths.get(pathDirectory+"/" + imageDTO.getImageId() + imageDTO.getImageType() + ".jpeg");break;
+                path= Paths.get(pathDirectory);
+                searchFile(path,imageName);
+                break;
+
 
         }
-
-
         try {
             if (foundFile != null) {
                 return new UrlResource(foundFile.toUri());

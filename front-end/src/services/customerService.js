@@ -71,6 +71,20 @@ class CustomerService {
         return await promise;
     }
 
+    checkLicenseByCustomer= async (custId) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('customer/checkCustomerLicence?custId='+custId)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
     registerCustomer= async (data) => {
         const promise = new Promise((resolve, reject) => {
             axios.post('customer/guestUser/register',data)

@@ -20,10 +20,10 @@ public class Driver {
     @Id
     private String driverId;
     private String email;
-    private String nic;
     private String drivingLicence;
     private String address;
     private String contactNumber;
+    private String state;
 
     @OneToMany(mappedBy = "driver")
     private Set<DriverSchedule> driverSchedule=new HashSet<DriverSchedule>();

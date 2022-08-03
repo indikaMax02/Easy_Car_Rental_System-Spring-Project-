@@ -3,12 +3,10 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import {styleSheet} from "./ManageDriverStyle";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import AdminNavBar from "../../../components/admin/NavBar/index";
+import AdminNavBar from "../../../components/admin/navBar";
 import Divider from "@material-ui/core/Divider";
-import Input from "@material-ui/core/Input";
-import DriverService from "../../../service/DriverService";
-import CarService from "../../../service/CarService";
-import ViewAllDriverPopUpTable from "../../../components/Driver/ViewAllDriverPopup/driverTablePopupTable";
+import DriverService from "./../../../services/driverService";
+import ViewAllDriverPopUpTable from "../../../components/driver/ViewAllDriverPopup/driverTablePopupTable";
 
 class ManageDriver extends Component {
     constructor(props) {
@@ -17,70 +15,49 @@ class ManageDriver extends Component {
         this.state = {
             frontImage: null,
             backImage: null,
-            sideImage: null,
-            interiorImage: null,
 
             frontView:null,
             backView:null,
-            sideView:null,
-            interiorView:null,
 
             driverDetails : {
                 driverId : "",
                 driverEmail : "",
                 driverContactNumber : "",
-                driverNicNumber :"",
                 driverLicenseNumber :"",
                 driverAddress : "",
             }
         }
     }
 
-    changeStateDriverDetails(Id, driverEmail, driverContactNumber,driverNicNumber, driverLicenseNumber, driverAddress, frontImage,backImage, sideImage,interiorImage){
+    changeStateDriverDetails(id, driverEmail, driverContactNumber, driverLicenseNumber, driverAddress, frontImage,backImage){
         this.setState({
-            carDetails : {
-                driverId : Id,
+            driverDetails : {
+                driverId : id,
                 driverEmail : driverEmail,
                 driverContactNumber : driverContactNumber,
-                driverNicNumber :driverNicNumber,
                 driverLicenseNumber :driverLicenseNumber,
                 driverAddress : driverAddress,
             },
 
             frontView : frontImage,
             backView : backImage,
-            sideView : sideImage,
-            interiorView : interiorImage,
+
 
         })
     }
 
     //-----------------------------------------------------------------------------------------------------------------------
 
-
-    addDriverIdImage = async (driverId) => {
+    uploadDrivingLicenceImages = async (driverId) => {
         var bodyFormData = new FormData();
         bodyFormData.append('param' , this.state.frontImage);
-        bodyFormData.append('param' , this.state.backImage)
-        bodyFormData.append('param' , this.state.sideImage);
-        bodyFormData.append('param' , this.state.interiorImage);
-
-        let res = await DriverService.addDriverIdImage(bodyFormData,driverId);
-        if (res.data.code===200){alert(res.data.message)}else {
-            alert(res.data.message);
-        }
-    }
-
-/*    addDriverLicenseImage = async (driverId) => {
-        var bodyFormData = new FormData();
-        bodyFormData.append('param' , this.state.licenseFrontImage);
-        bodyFormData.append('param' , this.state.licenseBackImage)
+        bodyFormData.append('param' , this.state.backImage);
 
         let res = await DriverService.addDriverLicenseImage(bodyFormData,driverId);
         if (res.data.code===200){alert(res.data.message)}else {
             alert(res.data.message);
         }
-    }*/
+    }
 
 
     //--------------------------------------------------------------------------------------------------------------------------------
@@ -91,21 +68,17 @@ class ManageDriver extends Component {
         var driverDetails = {
             driverId : this.state.driverDetails.driverId,
             email  : this.state.driverDetails.driverEmail,
-            contactNumber : this.state.driverDetails.driverContactNumber,
-            nicNumberAndPhoto : this.state.driverDetails.driverNicNumber,
-            drivingLicenseNumberAndPhoto : this.state.driverDetails.driverLicenseNumber,
+            drivingLicence : this.state.driverDetails.driverLicenseNumber,
             address : this.state.driverDetails.driverAddress ,
-            state : 'Pending'
+            contactNumber : this.state.driverDetails.driverContactNumber,
+            state : 'active'
         }
 
         let res = await DriverService.addDriver(driverDetails);
         if (res.data.code==200){
             alert(res.data.message);
 
-            this.addDriverIdImage(driverDetails.driverId);
-/*
-            this.addDriverLicenseImage(driverDetails.driverId);
-*/
+            await this.uploadDrivingLicenceImages(this.state.driverDetails.driverId);
 
         }else {
             alert(res.data.message);
@@ -120,8 +93,6 @@ class ManageDriver extends Component {
             driverId : this.state.driverDetails.driverId,
             email  : this.state.driverDetails.driverEmail,
             contactNumber : this.state.driverDetails.driverContactNumber,
-            nicNumberAndPhoto : this.state.driverDetails.driverNicNumber,
-            drivingLicenseNumberAndPhoto : this.state.driverDetails.driverLicenseNumber,
             address : this.state.driverDetails.driverAddress ,
             state : 'Pending'
         }
@@ -183,21 +154,13 @@ class ManageDriver extends Component {
         this.setState({
             frontImage: null,
             backImage: null,
-            sideImage: null,
-            interiorImage: null,
-
-            frontView:null,
-            backView:null,
-            sideView:null,
-            interiorView:null,
 
             driverDetails : {
-                driverId : "",
-                driverEmail : "",
-                driverContactNumber : "",
-                driverNicNumber :"",
-                driverLicenseNumber :"",
-                driverAddress : "",
+                driverId : '',
+                driverEmail : '',
+                driverContactNumber : '',
+                driverLicenseNumber :'',
+                driverAddress : '',
                 }
         })
     }
@@ -226,7 +189,8 @@ class ManageDriver extends Component {
                         <div className={classes.formTextFieldContainer}>
 
                             <TextField size={"small"} id="outlined-required" label="Driver ID" variant="outlined" value={this.state.driverDetails.driverId}
-                                       onChange={(e) => {let formData = this.state.driverDetails
+                                       onChange={(e) => {
+                                           let formData = this.state.driverDetails
                                            formData.driverId = e.target.value
                                            this.setState({ formData })
                                        }}/>
@@ -240,11 +204,7 @@ class ManageDriver extends Component {
                                            formData.driverContactNumber = e.target.value
                                            this.setState({ formData })
                                        }}/>
-                            <TextField size={"small"} id="outlined-required" label="Id Card Number" variant="outlined" value={this.state.driverDetails.driverNicNumber}
-                                       onChange={(e) => {let formData = this.state.driverDetails
-                                           formData.driverNicNumber = e.target.value
-                                           this.setState({ formData })
-                                       }}/>
+
                             <TextField size={"small"} id="outlined-required" label="Driving License Number" variant="outlined" value={this.state.driverDetails.driverLicenseNumber}
                                        onChange={(e) => {let formData = this.state.driverDetails
                                            formData.driverLicenseNumber = e.target.value
@@ -260,14 +220,14 @@ class ManageDriver extends Component {
                         
                         <Divider/>
                         <div className={classes.formDividerText2Container}>
-                            <h5 style={{color: 'black'}}>ID Front View</h5>
+
                             <h5 style={{color: 'black'}}>License Front View</h5>
-                            <h5 style={{color: 'black'}}>ID Back View</h5>
                             <h5 style={{color: 'black'}}>License Back View</h5>
                         </div>
                         <Divider/>
 
                         <div className={classes.imageContainer}>
+
                             <div className={classes.imageDiv}
                                  style={{
                                      display: 'flex',
@@ -277,7 +237,9 @@ class ManageDriver extends Component {
                                      backgroundImage: "url(" + this.state.frontView + ")",
                                      backgroundSize: 'cover'
                                  }}>
+                                image front
                             </div>
+
                             <div className={classes.imageDiv}
                                  style={{
                                      display: 'flex',
@@ -287,27 +249,8 @@ class ManageDriver extends Component {
                                      backgroundImage: "url(" + this.state.backView + ")",
                                      backgroundSize: 'cover'
                                  }}>
-                            </div>
-                            <div className={classes.imageDiv}
-                                 style={{
-                                     display: 'flex',
-                                     alignItems: 'center',
-                                     justifyContent: 'center',
-                                     height: '75%',
-                                     backgroundImage: "url(" + this.state.sideView + ")",
-                                     backgroundSize: 'cover'
-                                 }}>
-                            </div>
-                            <div className={classes.imageDiv}
-                                 style={{
-                                     display: 'flex',
-                                     alignItems: 'center',
-                                     justifyContent: 'center',
-                                     height: '75%',
-                                     backgroundImage: "url(" + this.state.interiorView + ")",
-                                     backgroundSize: 'cover'
-                                 }}>
-                            </div>
+                                image Back</div>
+
                         </div>
 
 
@@ -316,25 +259,7 @@ class ManageDriver extends Component {
 
 
                         <div className={classes.uploadButtonContainer}>
-                            <div><input
-                                style={{display: 'none'}}
-                                accept="image/*"
-                                className={classes.input}
-                                id="contained-button-file01"
-                                multiple
-                                type="file"
-                                onChange={(e) => {
-                                    this.setState({
-                                        frontImage: e.target.files[0],
-                                        frontView: URL.createObjectURL(e.target.files[0])
-                                    })
-                                }}/>
-                                <label htmlFor="contained-button-file01">
-                                    <Button variant="contained" color="primary" component="span">
-                                        Upload Image
-                                    </Button>
-                                </label>
-                            </div>
+
                             <div><input
                                 style={{display: 'none'}}
                                 accept="image/*"
@@ -342,39 +267,25 @@ class ManageDriver extends Component {
                                 id="contained-button-file02"
                                 multiple
                                 type="file"
-                                onChange={(e) => {
+
+
+                                onChange={(e) =>{
                                     this.setState({
-                                        backImage: e.target.files[0],
-                                        backView: URL.createObjectURL(e.target.files[0])
+                                        frontImage: e.target.files[0],
+                                        frontView : URL.createObjectURL(e.target.files[0])
                                     })
-                                }}/>
+
+
+                                }}
+
+                            />
                                 <label htmlFor="contained-button-file02">
                                     <Button variant="contained" color="primary" component="span">
-                                        Upload Image
+                                        Upload Image front
                                     </Button>
                                 </label>
                             </div>
-                            <div><input
-                                style={{display: 'none'}}
-                                accept="image/*"
-                                className={classes.input}
-                                id="contained-button-file03"
-                                multiple
-                                type="file"
-                                onChange={(e) => {
-                                    this.setState({
-                                        sideImage: e.target.files[0],
-                                        sideView: URL.createObjectURL(e.target.files[0])
-                                    })
-                                }}
-                            />
-                                <label htmlFor="contained-button-file03">
-                                    <Button variant="contained" color="primary" component="span">
-                                        Upload Image
-                                    </Button>
-                                </label>
 
-                            </div>
                             <div><input
                                 style={{display: 'none'}}
                                 accept="image/*"
@@ -383,15 +294,18 @@ class ManageDriver extends Component {
                                 multiple
                                 type="file"
                                 onChange={(e) => {
+
                                     this.setState({
-                                        interiorImage: e.target.files[0],
-                                        interiorView: URL.createObjectURL(e.target.files[0])
+                                        backImage: e.target.files[0],
+                                        backView: URL.createObjectURL(e.target.files[0])
                                     })
-                                }}
+                                }
+
+                                }
                             />
                                 <label htmlFor="contained-button-file04">
                                     <Button variant="contained" color="primary" component="span">
-                                        Upload Image
+                                        Upload Image back
                                     </Button>
                                 </label>
                             </div>

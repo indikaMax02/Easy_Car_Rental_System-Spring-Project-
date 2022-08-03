@@ -5,6 +5,9 @@ import Link from "@material-ui/core/Link";
 import {styleSheet} from "./style";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
+import Divider from "@material-ui/core/Divider";
+import icon from "../../../assets/icon/logo.png"
+
 
  function CarDetailsPopUp(props) {
     const [show, setShow] = useState(false);
@@ -19,37 +22,74 @@ import Grid from "@material-ui/core/Grid";
               Car Details
             </button>
 
-            <Modal style={{ color : 'blue' , background: 'rgba(255, 255, 255, 0)' , boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)', backdropFilter: 'blur(8.8px)'}} size={"lg"} show={show} onHide={handleClose}>
+            <Modal style={{ color : 'blue',  background: 'rgba(255, 255, 255, 0)' , boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)', backdropFilter: 'blur(8.8px)'}} size={"lg"} show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Car Details</Modal.Title>
+                    <img src={icon} alt=""/>
+                    <div style={{width : '150px'}}></div>
+                    <Modal.Title><div>Car Details</div></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
 
                     <div className={classes.mainContainer}>
-                        <div className={classes.leftContainer}></div>
+                        <div className={classes.leftContainer}>
+
+                            <ul style={{listStyleType : 'none', color:'white', fontFamily : 'Open Sans',fontSize : '12px', backgroundColor : "green"}}>
+                                <li>
+
+                                    <label style={{color : "#7bdcc2"}}>*** Car Brand *** </label>
+                                    <p>example Car Brand</p>
+                                </li>
+
+                                <li>
+                                    <label htmlFor="" style={{color : "#7bdcc2"}}>*** Vehical Type *** </label><br/>
+                                    <p>example Car Type</p></li>
+
+                                <li>
+                                    <label htmlFor="" style={{color : "#7bdcc2"}}>*** Number Of Passenger *** </label><br/>
+                                    <p>example Car Type</p></li>
+                                <li>
+                                    <label htmlFor="" style={{color : "#7bdcc2"}}>*** transmissionType *** </label><br/>
+                                    <p>example Car Type</p></li>
+                                <li>
+                                    <label htmlFor="" style={{color : "#7bdcc2"}}>*** daily price *** </label><br/>
+                                    <p>example Car Type</p></li>
+                                <li>
+                                    <label htmlFor="" style={{color : "#7bdcc2"}}>*** monthly price *** </label><br/>
+                                    <p>example Car Type</p></li>
+                                <li>
+                                    <label htmlFor="" style={{color : "#7bdcc2"}}>*** daily Free Km *** </label><br/>
+                                    <p>example Car Type</p></li>
+                                <li>
+                                    <label htmlFor="" style={{color : "#7bdcc2"}}>*** monthly Free Km *** </label><br/>
+                                    <p>example Car Type</p></li>
+                                <li>
+                                    <label htmlFor="" style={{color : "#7bdcc2"}}>*** price Of Extra Km *** </label><br/>
+                                    <p>example Car Type</p></li>
+
+                            </ul>
+
+                        </div>
                         <div className={classes.rightContainer}>
 
-                            <Grid container className={classes.imagesGridContainer}   >
+                            <div  className={classes.imagesGridContainer}  >
 
-                                <Grid item> <div className={classes.images} spacing={10}>hello</div></Grid>
-                                <Grid item> <div className={classes.images} spacing={5}>hello</div> </Grid>
-                                <Grid item> <div className={classes.images} spacing={5}>hello</div> </Grid>
-                                <Grid item> <div className={classes.images} spacing={5}>hello</div> </Grid>
+                                 <div className={classes.images} ></div>
+                                 <div className={classes.images} ></div>
+                                 <div className={classes.images} ></div>
+                                 <div className={classes.images} ></div>
 
-                            </Grid>
+                            </div>
 
                         </div>
                     </div>
 
-
-
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="danger" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
+                    <Button style={{width : '200px'}} variant="success" onClick={handleClose}>
+                        Rent Now
                     </Button>
                 </Modal.Footer>
             </Modal>

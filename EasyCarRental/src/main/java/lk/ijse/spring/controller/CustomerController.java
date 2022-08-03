@@ -33,6 +33,11 @@ public class CustomerController {
     SearchFile searchFile;
 
 
+    @GetMapping(path = "checkCustomerLicence")
+    public ResponseUtil existCustomerLicence(@RequestParam String custId){
+        customerService.existCustomerLicence(custId);
+        return new ResponseUtil(200,"Customer Licence ok",null);
+    }
 
 
     @PostMapping(path = "checkAccount", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)

@@ -4,10 +4,9 @@ export const styleSheet={
         flexDirection : 'row',
         width: '100%',
         height: '400px',
-        backgroundColor: "blue"
     },
     leftContainer : {
-
+        overflowY:'scroll',
         backgroundColor : '#716c71',
         width : '250px',
         height : '100%'
@@ -15,20 +14,25 @@ export const styleSheet={
     },
 
     rightContainer : {
-        backgroundColor : '#2333c1',
+        overflowY:'scroll',
         width : '75%',
         height : '100%'
     },
     images : {
-        backgroundColor : '#37ff21',
-        height : '250px',
-        width : '500px%',
+        backgroundColor : '#f5faf5',
+        height : '45%',
+        width : '250px',
+        borderRadius : '10px',
+        boxShadow : '1.5px 1.5px 5px 1px',
     },
 
     imagesGridContainer : {
-        height : '90%',
-        width :'90%',
-        backgroundColor : 'red',
+
+        height : '100%',
+        width :'100%',
+        display : 'flex',
+        flexWrap : 'wrap',
+        flexDirection: 'row',
         alignItems : 'center',
         justifyContent : 'space-evenly'
 

@@ -151,6 +151,11 @@ public class CarController {
         return new ResponseUtil(200,"car Delete success",null);
     }
 
+    @GetMapping(path = "getCar")
+    public ResponseUtil getCarById(@RequestParam String id){
+        CarDTO car = carService.getCarById(id);
+        return new ResponseUtil(200,"Get All Cars",car);
+    }
 
     @GetMapping(path ="getAllCars" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllCars(){

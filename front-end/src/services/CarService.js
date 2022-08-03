@@ -2,6 +2,19 @@ import axios from "../axios";
 
 class CarService {
 
+    getCarById =async (carId) =>{
+        const promise = new Promise((resolve, reject) => {
+            axios.get('car/getCar?id='+carId)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
 
 
     getAllCar = async () => {

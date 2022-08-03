@@ -87,6 +87,22 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+    @Override
+    public void existCustomerLicence(String custId) {
+        if (repo.existsById(custId)){
+
+            String licence = repo.existsCustomerLicence(custId);
+            System.out.println("license :" +licence);
+            if (licence==null){
+                System.out.println("if check");
+                throw new RuntimeException("Customer licence not found");
+            }
+        }else {
+            throw new RuntimeException("Customer Not Found");
+        }
+
+    }
+
     @Transactional
     @Override
     public void saveCustomer(RegisterCustomerDTO registerCustomerDTO){

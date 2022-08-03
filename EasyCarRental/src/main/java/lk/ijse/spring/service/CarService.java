@@ -10,4 +10,5 @@ public interface CarService {
     public void editCar(CarDTO carDTO);
     public void deleteCar(String carId);
     public List<CarDTO> getAllCars();
+    public CarDTO getCarById(String carId);
 }

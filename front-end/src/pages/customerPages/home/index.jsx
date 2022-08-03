@@ -21,8 +21,8 @@ import aboutImg from  "../../../assets/image/slider1.jpg";
 
 import Slider from "react-slick";
 import CarService from "../../../services/CarService";
-import FuntionCar from "../../../assets/CarData/carData";
-import CarDetails from "../../../assets/CarData/carData";
+import FuntionCar from "../../../assets/CarData";
+import CarDetails from "../../../assets/CarData";
 import CarItem from "../../../components/customer/carItem/CarItem";
 import Reg from "../../../components/customer/register";
 
@@ -419,7 +419,7 @@ class NavBar extends Component {
                         <h6 className="section__subtitle">Come with</h6>
                         <h2 className="section__title">Hot Offers</h2>
                     </Col>
-                    <CarDetails/>
+                    <CarDetails data={{customerId : this.props.data.customerId}}/>
 
                 </Row>
             </Container>

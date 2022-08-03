@@ -22,7 +22,7 @@ export const styleSheet = {
     form_backGround: {
         marginLeft: '10px',
         display: 'flex',
-        width: '75%',
+        width: '65%',
         height: '95%',
         backgroundColor: '#dededd',
         boxShadow: '5px 5px 10px 1.5px',
@@ -88,9 +88,10 @@ export const styleSheet = {
         alignItems: "center",
     },
     sideButton_container: {
+
         display: 'flex',
-        width: '20%',
-        height: '40%',
+        width: '30%',
+        height: '50%',
         flexDirection: 'column',
         borderRadius: '10px',
         boxShadow: '2px 2px 5px 1px',

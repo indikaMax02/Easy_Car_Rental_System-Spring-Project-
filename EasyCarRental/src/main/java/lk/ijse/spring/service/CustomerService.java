@@ -17,4 +17,5 @@ public interface CustomerService {
     void existEmail(String Email);
     String getNewId();
     void checkUserAccount(String userName,String password);
+    void existCustomerLicence(String custId);
 }
