@@ -159,7 +159,7 @@ public class DriverController {
 
 
 
-    @SneakyThrows
+    /*@SneakyThrows
     @PostMapping(path = "updateDriverIdImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateDriverIdImage(@RequestParam(value = "idImage") MultipartFile multipartFile , @RequestParam("driverId") String driverId ,@RequestParam("view") String view){
 
@@ -170,7 +170,7 @@ public class DriverController {
         }
         return new ResponseUtil(200,"Driver IdImage Fail",null);
     }
-
+*/
 
 /*    @SneakyThrows
     @PostMapping(path = "updateDriverLicenseImage",produces = MediaType.APPLICATION_JSON_VALUE)

@@ -37,6 +37,4 @@ public class Car {
     @OneToMany(mappedBy = "car")
     private Set<DriverSchedule> driverSchedule=new HashSet<DriverSchedule>();
 
-
-
 }

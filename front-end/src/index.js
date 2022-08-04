@@ -6,11 +6,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import 'remixicon/fonts/remixicon.css'
 import "slick-carousel/slick/slick-theme.css";
-
+import { BrowserRouter, Route, Link } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   /*<React.StrictMode>*/
-    <App/>
+
+
+        <App/>
+
+
  /* </React.StrictMode>*/
 );
 

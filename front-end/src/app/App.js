@@ -9,19 +9,20 @@ import RentalRequest from "../components/customer/rentalRequest";
 import ManageDriver from "../pages/adminPages/ManageDriver/ManageDriver";
 import AlertMessage from "../components/customer/Confirm alert";
 import ConfirmAlert from "../components/customer/Confirm alert";
-
-
-
-
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Router} from "react-router";
 
 
 function App() {
   return (
-    /*  <ManageCar/>*/
-     <NewHome data={{customerId : 'C-001'}}/>
-     /* <ManageDriver/>*/
-      /*<ConfirmAlert/>*/
+
+   <BrowserRouter>
+          <Routes>
+              <Route exact path='/' element={<NewHome data={{customerId : 'C-001'}}/>}/>
+              <Route path="/manageCar" element={<ManageCar/>} />
+          </Routes>
+   </BrowserRouter>
+
   );
 }
 
